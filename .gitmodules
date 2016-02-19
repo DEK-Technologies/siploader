@@ -1,0 +1,6 @@
+[submodule "submodules/nksip"]
+	path = submodules/nksip
+	url = https://github.com/NetComposer/nksip.git
+[submodule "submodules/rebar"]
+	path = submodules/rebar
+	url = https://github.com/rebar/rebar
