@@ -21,5 +21,7 @@ remove_multiline_comments([Char | Rest], Handled) ->
 
 remove_comment([$*, $/ | Rest], Handled) ->
     remove_multiline_comments(Rest, Handled);
+remove_comment([$\n | Rest], Handled) ->
+    remove_comment(Rest, [$\n | Handled]); % Preserve the line numbering
 remove_comment([_Char | Rest], Handled) ->
     remove_comment(Rest, Handled).
