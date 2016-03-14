@@ -1,2 +1,2 @@
-# SLS (SIP Loader Server)
+# SLS (SIP Load Server)
 A SIP loader
