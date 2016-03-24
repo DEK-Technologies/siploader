@@ -1,0 +1,48 @@
+Code to parse TitanSim config files.
+
+The TitanSim config files seams to follow TTCN-3 grammar on a statement
+level, so the grammar files are inspired by that grammar:
+
+http://www.etsi.org/deliver/etsi_es/201800_201899/20187301/04.07.01_60/es_20187301v040701p.pdf
+
+The TTCN-3 grammar is really huge and does not fit the TitanSim config files
+exactly. Therefor the grammar are only made to handle the config files I have
+tested.
+
+Files:
+config_parser.yrl  - Grammar in Yecc format
+config_scanner.xrl - Lexical specification in Leex format
+parse_config.erl   - Main parser module, that makes use of the above files
+
+Todo:
+1) Build support - There are no build support yet. You have to build manually.
+2) Scanner - In some sence working, but will need to be updated during the
+             implementation of the parser.
+3) Parser - Can only parse very simple config files yet. There are a lot of
+            warnings since some terminals are introduced, but not yet used.
+4) Parse tree - The requirements for the parse tree is unclear. Now the
+                tree includes line numbers, in case we will need some
+                semantics error checking.
+
+Howto:
+> cd siploader/src/config/
+> erl
+Erlang R16B01 (erts-5.10.2) [source] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false]
+
+Eshell V5.10.2  (abort with ^G)
+1> leex:file(config_scanner).
+{ok,"./config_scanner.erl"}
+2> yecc:file(config_parser).                        
+{ok,"config_parser.erl"}
+3> c(config_scanner).
+{ok,config_scanner}
+3> c(config_parser).
+{ok,config_parser}
+5> c(parse_config).
+{ok,parse_config}
+4> parse_config:file("titan/MGWSim_H248_demo.cfg").
+63> parse_config:file("titan/MGWSim_local_host.cfg").
+{ok,
+ {section,'DEFINE',
+ ...
+

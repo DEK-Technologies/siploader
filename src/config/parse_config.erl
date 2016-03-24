@@ -6,7 +6,8 @@ file(FileName) ->
     {ok, File} = file:read_file(FileName),
     S1 = unicode:characters_to_list(File),
     S2 = remove_multiline_comments(S1),
-    config_scanner:string(S2).
+    {ok, Tokens, _EndLineNr} = config_scanner:string(S2),
+    config_parser:parse(Tokens).
 
 % Remove comments on the form /* ... */
 remove_multiline_comments(String) ->
