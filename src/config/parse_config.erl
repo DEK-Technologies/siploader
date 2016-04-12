@@ -7,6 +7,7 @@ file(FileName) ->
     S1 = unicode:characters_to_list(File),
     S2 = remove_multiline_comments(S1),
     {ok, Tokens, _EndLineNr} = config_scanner:string(S2),
+%    io:format("Tokens: ~p\n", [Tokens]),
     config_parser:parse(Tokens).
 
 % Remove comments on the form /* ... */

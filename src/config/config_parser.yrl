@@ -1,23 +1,24 @@
 Nonterminals 
 sections section section_header statements statement assignment
 variable_ref expression single_expression compound_expression
-array_expression array_element_expression_list not_used_or_expr
+array_expression array_element_expr_list not_used_or_expr
 field_expression_list field_expr_specs field_expr_spec field_ref
-value float_value extended_identifier identifier.
+value float_value extended_identifier identifier
+macro identifier_list.
 
 Terminals '[' ']' '{' '}' '.' ',' ';' '*' '$' ':=' '-'
 mix_identifier integer float string uppercase_identifier not_a_number.
 
 Rootsymbol sections.
 
-sections -> section : '$1'.
+sections -> section : ['$1'].
 sections -> section sections : ['$1'] ++ '$2'.
 
 section -> section_header statements : section('$1', '$2').
 
 section_header -> '[' uppercase_identifier ']' : '$2'.
 
-statements -> statement : '$1'.
+statements -> statement : ['$1'].
 statements -> statement statements : ['$1'] ++ '$2'.
 
 statement -> statement ';' : '$1'.
@@ -34,6 +35,13 @@ expression -> compound_expression : '$1'.
 
 compound_expression -> field_expression_list : '$1'.
 compound_expression -> array_expression : '$1'.
+compound_expression -> macro: '$1'.
+
+macro -> '$' identifier : {'macro', '$2'}.
+macro -> '$' '{' identifier_list '}' : {'macro', '$3'}.
+
+identifier_list -> identifier : ['$1'].
+identifier_list -> identifier ',' identifier_list : ['$1'] ++ '$2'.
 
 field_expression_list -> '{' field_expr_specs '}': '$2'.
 
@@ -45,10 +53,10 @@ field_expr_spec -> field_ref ':=' not_used_or_expr : {'$1', '$3'}.
 field_ref -> identifier : field('$1').
 
 array_expression -> '{' '}' : [].
-array_expression -> '{' array_element_expression_list '}' : '$2'.
+array_expression -> '{' array_element_expr_list '}' : '$2'.
 
-array_element_expression_list -> not_used_or_expr : ['$1'].
-array_element_expression_list -> not_used_or_expr ',' not_used_or_expr : '$1'.
+array_element_expr_list -> not_used_or_expr : ['$1'].
+array_element_expr_list -> array_element_expr_list ',' not_used_or_expr : '$1'.
 
 not_used_or_expr -> '-' : '$1'.
 not_used_or_expr -> expression : '$1'.

@@ -1,13 +1,16 @@
 Code to parse TitanSim config files.
 
+I have not found any good documentation of TitenSim config file grammar.
+Therefor this parsers grammar is based on trail and error based on the
+config files I have tested it with. So far I have used the example config
+files that are parts of the "TitenSim Online Documentation".
+
 The TitanSim config files seams to follow TTCN-3 grammar on a statement
 level, so the grammar files are inspired by that grammar:
 
 http://www.etsi.org/deliver/etsi_es/201800_201899/20187301/04.07.01_60/es_20187301v040701p.pdf
 
-The TTCN-3 grammar is really huge and does not fit the TitanSim config files
-exactly. Therefor the grammar are only made to handle the config files I have
-tested.
+The TTCN-3 grammar is really huge and will not be implemented as a whole.
 
 Files:
 config_parser.yrl  - Grammar in Yecc format
@@ -16,10 +19,10 @@ parse_config.erl   - Main parser module, that makes use of the above files
 
 Todo:
 1) Build support - There are no build support yet. You have to build manually.
-2) Scanner - In some sence working, but will need to be updated during the
-             implementation of the parser.
-3) Parser - Can only parse very simple config files yet. There are some
-            warnings since some terminals are introduced, but not yet used.
+2) Scanner - Working for the example config files. Probably need to make
+             fixes in when we test other config files.
+3) Parser - Handling wildecards are missing. Otherwise it can handle the
+            example config files.
 4) Parse tree - The requirements for the parse tree is unclear. Now the
                 tree includes line numbers, in case we will need some
                 semantics error checking.
@@ -40,8 +43,7 @@ Eshell V5.10.2  (abort with ^G)
 {ok,config_parser}
 5> c(parse_config).
 {ok,parse_config}
-4> parse_config:file("titan/MGWSim_H248_demo.cfg").
-63> parse_config:file("titan/MGWSim_local_host.cfg").
+6> parse_config:file("titan/MGWSim_local_host.cfg").
 {ok,
  {section,'DEFINE',
  ...
