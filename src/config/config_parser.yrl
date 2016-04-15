@@ -4,12 +4,15 @@ variable_ref expression single_expression compound_expression
 array_expression array_element_expr_list not_used_or_expr
 field_expression_list field_expr_specs field_expr_spec field_ref
 value float_value extended_identifier identifier
-macro identifier_list.
+macro identifier_list parameter_template wildcard_variable wildcard_ident.
 
 Terminals '[' ']' '{' '}' '.' ',' ';' '*' '$' ':=' '-'
 mix_identifier integer float string uppercase_identifier not_a_number.
 
 Rootsymbol sections.
+
+%% Define operator associativity to prevent shift/reduce conflict warning
+Left 100 '.'.
 
 sections -> section : ['$1'].
 sections -> section sections : ['$1'] ++ '$2'.
@@ -23,8 +26,14 @@ statements -> statement statements : ['$1'] ++ '$2'.
 
 statement -> statement ';' : '$1'.
 statement -> assignment : '$1'.
-statement -> string : '$1'. % can be found under [INCLUDE]
-statement -> extended_identifier : '$1'. % can be found under [EXECUTE]
+%% [INCLUDE] specific statements?
+statement -> string : '$1'.
+%% [EXECUTE] specific statements?
+statement -> extended_identifier : '$1'.
+%% [TESTPORT_PARAMETERS] specific statements?
+statement -> parameter_template : '$1'.
+
+parameter_template -> wildcard_variable ':=' expression : {template,'$1','$3'}.
 
 assignment -> variable_ref ':=' expression : assignment('$1', '$3').
 
@@ -63,6 +72,12 @@ not_used_or_expr -> expression : '$1'.
 
 single_expression -> value : '$1'.
 
+wildcard_variable -> wildcard_ident '.' wildcard_ident : ['$1', '$3'].
+wildcard_variable -> wildcard_variable '.' wildcard_ident : '$1' ++ ['$3'].
+
+wildcard_ident -> identifier : '$1'.
+wildcard_ident -> '*': wildcard('$1').
+
 extended_identifier -> identifier '.' identifier : ['$1', '$3'].
 extended_identifier -> extended_identifier '.' identifier : '$1' ++ ['$3'].
 
@@ -84,3 +99,4 @@ section({_,Line,Val}, Block) -> {'section', Val, Block, Line}.
 assignment({_,Line,Val}, Right) -> {'assignment', Val, Right, Line}.
 variable({_,Line,Val}) -> {'variable', Val, Line}.
 field({_,Line,Val}) -> {'field', Val, Line}.
+wildcard({WC,Line}) -> {wildcard, Line, WC}.

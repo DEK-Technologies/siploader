@@ -21,8 +21,13 @@ Todo:
 1) Build support - There are no build support yet. You have to build manually.
 2) Scanner - Working for the example config files. Probably need to make
              fixes in when we test other config files.
-3) Parser - Handling wildecards are missing. Otherwise it can handle the
-            example config files.
+3) Parser - Working for the example config files. Probably need to make
+            fixes in when we test other config files.
+
+	    The handling of wildcard ('*') was tailored for one of the example
+	    files, this might become a problem with other config files. But
+	    the wildcard and template handling in TTCN-3 is very complex and
+	    hopefully we will not need all that functionality.
 4) Parse tree - The requirements for the parse tree is unclear. Now the
                 tree includes line numbers, in case we will need some
                 semantics error checking.
