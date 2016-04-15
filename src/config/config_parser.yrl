@@ -15,14 +15,14 @@ Rootsymbol sections.
 Left 100 '.'.
 
 sections -> section : ['$1'].
-sections -> section sections : ['$1'] ++ '$2'.
+sections -> sections section : '$1' ++ ['$2'].
 
 section -> section_header statements : section('$1', '$2').
 
 section_header -> '[' uppercase_identifier ']' : '$2'.
 
 statements -> statement : ['$1'].
-statements -> statement statements : ['$1'] ++ '$2'.
+statements -> statements statement : '$1' ++ ['$2'].
 
 statement -> statement ';' : '$1'.
 statement -> assignment : '$1'.
@@ -50,7 +50,7 @@ macro -> '$' identifier : {'macro', '$2'}.
 macro -> '$' '{' identifier_list '}' : {'macro', '$3'}.
 
 identifier_list -> identifier : ['$1'].
-identifier_list -> identifier ',' identifier_list : ['$1'] ++ '$2'.
+identifier_list -> identifier_list ',' identifier : '$1' ++ ['$2'].
 
 field_expression_list -> '{' field_expr_specs '}': '$2'.
 
