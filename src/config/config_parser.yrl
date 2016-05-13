@@ -7,6 +7,7 @@ value float_value extended_identifier identifier
 macro identifier_list parameter_template wildcard_variable wildcard_ident.
 
 Terminals '[' ']' '{' '}' '.' ',' ';' '*' '$' ':=' '-'
+octetstring bitstring hexstring
 mix_identifier integer float string uppercase_identifier not_a_number.
 
 Rootsymbol sections.
@@ -18,6 +19,7 @@ sections -> section : ['$1'].
 sections -> sections section : '$1' ++ ['$2'].
 
 section -> section_header statements : section('$1', '$2').
+section -> section_header : section('$1', []).
 
 section_header -> '[' uppercase_identifier ']' : '$2'.
 
@@ -88,6 +90,10 @@ value -> integer : '$1'.
 value -> float_value : '$1'.
 value -> string : '$1'.
 value -> identifier : '$1'.
+value -> bitstring : '$1'.
+value -> hexstring : '$1'.
+value -> octetstring : '$1'.
+value -> '*': wildcard('$1').
 
 float_value -> float: '$1'.
 float_value -> not_a_number: nan('$1').

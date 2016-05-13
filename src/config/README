@@ -3,7 +3,8 @@ Code to parse TitanSim config files.
 I have not found any good documentation of TitenSim config file grammar.
 Therefor this parsers grammar is based on trail and error based on the
 config files I have tested it with. So far I have used the example config
-files that are parts of the "TitenSim Online Documentation".
+files that are parts of the "TitenSim Online Documentation" and a couple
+files used for smoke testing at Ericsson.
 
 The TitanSim config files seams to follow TTCN-3 grammar on a statement
 level, so the grammar files are inspired by that grammar:
@@ -48,7 +49,7 @@ Eshell V5.10.2  (abort with ^G)
 {ok,config_parser}
 5> c(parse_config).
 {ok,parse_config}
-6> parse_config:file("titan/MGWSim_local_host.cfg").
+6> parse_config:file("test.cfg").
 {ok,
  {section,'DEFINE',
  ...
