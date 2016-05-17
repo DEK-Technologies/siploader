@@ -29,9 +29,16 @@ Todo:
 	    files, this might become a problem with other config files. But
 	    the wildcard and template handling in TTCN-3 is very complex and
 	    hopefully we will not need all that functionality.
-4) Parse tree - The requirements for the parse tree is unclear. Now the
-                tree includes line numbers, in case we will need some
-                semantics error checking.
+4) Parse tree - The tree includes line numbers, in case we will need some
+                semantics error checking. The parse tree is translated into
+		a config data structure in a later step. Maybe we do
+		not need the line information, then we can refactor the code
+		to output the "config data structure" in the first step to
+		save parsing time.
+5) Config data structure - Data structure to be used by the load server.
+                           This need to be updated since the format is not yet
+			   decided on. Now it contains a proplist, will
+			   probably replace that with maps.
 
 Howto:
 > cd siploader/src/config/

@@ -7,7 +7,7 @@ value float_value extended_identifier identifier
 macro identifier_list parameter_template wildcard_variable wildcard_ident.
 
 Terminals '[' ']' '{' '}' '.' ',' ';' '*' '$' ':=' '-'
-octetstring bitstring hexstring
+octetstring bitstring hexstring boolean
 mix_identifier integer float string uppercase_identifier not_a_number.
 
 Rootsymbol sections.
@@ -35,7 +35,7 @@ statement -> extended_identifier : '$1'.
 %% [TESTPORT_PARAMETERS] specific statements?
 statement -> parameter_template : '$1'.
 
-parameter_template -> wildcard_variable ':=' expression : {template,'$1','$3'}.
+parameter_template -> wildcard_variable ':=' expression : templ('$1','$2','$3').
 
 assignment -> variable_ref ':=' expression : assignment('$1', '$3').
 
@@ -48,18 +48,18 @@ compound_expression -> field_expression_list : '$1'.
 compound_expression -> array_expression : '$1'.
 compound_expression -> macro: '$1'.
 
-macro -> '$' identifier : {'macro', '$2'}.
-macro -> '$' '{' identifier_list '}' : {'macro', '$3'}.
+macro -> '$' identifier : macro('$1', '$2').
+macro -> '$' '{' identifier_list '}' : macro('$1', '$3').
 
 identifier_list -> identifier : ['$1'].
-identifier_list -> identifier_list ',' identifier : '$1' ++ ['$2'].
+identifier_list -> identifier_list ',' identifier : '$1' ++ ['$3'].
 
 field_expression_list -> '{' field_expr_specs '}': '$2'.
 
 field_expr_specs -> field_expr_spec : ['$1'].
 field_expr_specs -> field_expr_specs ',' field_expr_spec : '$1' ++ ['$3'].
 
-field_expr_spec -> field_ref ':=' not_used_or_expr : {'$1', '$3'}.
+field_expr_spec -> field_ref ':=' not_used_or_expr : field_spec('$1', '$3').
 
 field_ref -> identifier : field('$1').
 
@@ -83,26 +83,30 @@ wildcard_ident -> '*': wildcard('$1').
 extended_identifier -> identifier '.' identifier : ['$1', '$3'].
 extended_identifier -> extended_identifier '.' identifier : '$1' ++ ['$3'].
 
-identifier -> uppercase_identifier: '$1'.
-identifier -> mix_identifier: '$1'.
+identifier -> uppercase_identifier: ident('$1').
+identifier -> mix_identifier: ident('$1').
 
 value -> integer : '$1'.
 value -> float_value : '$1'.
 value -> string : '$1'.
 value -> identifier : '$1'.
+value -> boolean : '$1'.
 value -> bitstring : '$1'.
 value -> hexstring : '$1'.
 value -> octetstring : '$1'.
 value -> '*': wildcard('$1').
 
 float_value -> float: '$1'.
-float_value -> not_a_number: nan('$1').
+float_value -> not_a_number: '$1'.
 
 Erlang code.
 
-nan({not_a_number,Line,Val}) -> {'float', Val, Line}.
-section({_,Line,Val}, Block) -> {'section', Val, Block, Line}.
-assignment({_,Line,Val}, Right) -> {'assignment', Val, Right, Line}.
-variable({_,Line,Val}) -> {'variable', Val, Line}.
-field({_,Line,Val}) -> {'field', Val, Line}.
-wildcard({WC,Line}) -> {wildcard, Line, WC}.
+macro({_,Line}, Val) -> {'macro', Line, Val}.
+templ(WC, {_,Line}, Val) -> {'template', Line, WC, Val}.
+section({_,Line,Val}, Block) -> {'section', Line, Val, Block}.
+assignment({_,Line,Val}, Right) -> {'assignment', Line, Val, Right}.
+field_spec({_,Line,Val}, Right) -> {'field_spec', Line, Val, Right}.
+variable({_,Line,Val}) -> {'variable', Line, Val}.
+field({_,Line,Val}) -> {'field', Line, Val}.
+wildcard({WC,Line}) -> {'wildcard', Line, WC}.
+ident({_,Line,Val}) -> {'identifier', Line, Val}.

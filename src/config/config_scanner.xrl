@@ -13,6 +13,8 @@ S = [^\"]
 
 Rules.
 
+true      : {token, {boolean,TokenLine,true}}.
+false     : {token, {boolean,TokenLine,false}}.
 "{S}*"    : S = strip(TokenChars,TokenLen),
        	     {token,{string,TokenLine,S}}.
 {UA}{UL}* : {token,{uppercase_identifier,TokenLine,list_to_atom(TokenChars)}}.
