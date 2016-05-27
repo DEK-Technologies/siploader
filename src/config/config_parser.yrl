@@ -54,7 +54,7 @@ macro -> '$' '{' identifier_list '}' : macro('$1', '$3').
 identifier_list -> identifier : ['$1'].
 identifier_list -> identifier_list ',' identifier : '$1' ++ ['$3'].
 
-field_expression_list -> '{' field_expr_specs '}': '$2'.
+field_expression_list -> '{' field_expr_specs '}': field_expr('$1', '$2').
 
 field_expr_specs -> field_expr_spec : ['$1'].
 field_expr_specs -> field_expr_specs ',' field_expr_spec : '$1' ++ ['$3'].
@@ -110,3 +110,4 @@ variable({_,Line,Val}) -> {'variable', Line, Val}.
 field({_,Line,Val}) -> {'field', Line, Val}.
 wildcard({WC,Line}) -> {'wildcard', Line, WC}.
 ident({_,Line,Val}) -> {'identifier', Line, Val}.
+field_expr({_,Line}, Val) -> {'field_expression_list', Line, Val}.

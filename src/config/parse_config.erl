@@ -50,6 +50,8 @@ config_data({macro, _Line, {identifier,_,Ident}}) ->
     {macro, Ident};
 config_data({wildcard, _Line, Val}) ->
     {wildcard, Val};
+config_data({'field_expression_list', _Line, Val}) ->
+    maps:from_list(config_data(Val));
 config_data({_, _Line, Val}) ->
     Val;
 config_data(List = [_|_]) ->

@@ -37,8 +37,7 @@ Todo:
 		save parsing time.
 5) Config data structure - Data structure to be used by the load server.
                            This need to be updated since the format is not yet
-			   decided on. Now it contains a proplist, will
-			   probably replace that with maps.
+			   decided on.
 
 Howto:
 > cd siploader/src/config/
