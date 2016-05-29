@@ -18,7 +18,7 @@ config_parser.yrl  - Grammar in Yecc format
 config_scanner.xrl - Lexical specification in Leex format
 parse_config.erl   - Main parser module, that makes use of the above files
 
-Todo:
+Status and Todo:
 1) Build support - There are no build support yet. You have to build manually.
 2) Scanner - Working for the example config files. Probably need to make
              fixes in when we test other config files.
@@ -28,7 +28,8 @@ Todo:
 	    The handling of wildcard ('*') was tailored for one of the example
 	    files, this might become a problem with other config files. But
 	    the wildcard and template handling in TTCN-3 is very complex and
-	    hopefully we will not need all that functionality.
+	    hopefully we will not need all that functionality. The parser
+	    looks in INCLUDE section and parses these files too.
 4) Parse tree - The tree includes line numbers, in case we will need some
                 semantics error checking. The parse tree is translated into
 		a config data structure in a later step. Maybe we do
@@ -38,6 +39,12 @@ Todo:
 5) Config data structure - Data structure to be used by the load server.
                            This need to be updated since the format is not yet
 			   decided on.
+
+Known bugs:
+- The "//" in this line
+  tsp_GenApp_StatCapturingFilterRegexp := "*"//"*FSMStats.*((RequestsSent)|(RequestsReceived)|(ResponsesReceived)|(ResponsesSent)|(timeOuts))*"
+  should probably not be interpreted  (as today) like beginning of a comment.
+- A field expression list inside an array is handled wrong.
 
 Howto:
 > cd siploader/src/config/
@@ -55,8 +62,7 @@ Eshell V5.10.2  (abort with ^G)
 {ok,config_parser}
 5> c(parse_config).
 {ok,parse_config}
-6> parse_config:file("test.cfg").
-{ok,
- {section,'DEFINE',
- ...
+6> parse_config:parse("test.cfg").
+#{'INCLUDE' => 
+...
 
