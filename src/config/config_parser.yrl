@@ -67,7 +67,8 @@ array_expression -> '{' '}' : [].
 array_expression -> '{' array_element_expr_list '}' : '$2'.
 
 array_element_expr_list -> not_used_or_expr : ['$1'].
-array_element_expr_list -> array_element_expr_list ',' not_used_or_expr : '$1'.
+array_element_expr_list -> array_element_expr_list ',' not_used_or_expr : 
+			'$1' ++ ['$3'].
 
 not_used_or_expr -> '-' : '$1'.
 not_used_or_expr -> expression : '$1'.

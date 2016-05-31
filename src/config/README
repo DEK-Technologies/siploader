@@ -44,7 +44,6 @@ Known bugs:
 - The "//" in this line
   tsp_GenApp_StatCapturingFilterRegexp := "*"//"*FSMStats.*((RequestsSent)|(RequestsReceived)|(ResponsesReceived)|(ResponsesSent)|(timeOuts))*"
   should probably not be interpreted  (as today) like beginning of a comment.
-- A field expression list inside an array is handled wrong.
 
 Howto:
 > cd siploader/src/config/
