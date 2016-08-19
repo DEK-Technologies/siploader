@@ -1,0 +1,23 @@
+2016-08-05 16:00:25.747 [error] <0.161.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.162.0> exit with reason noproc in context shutdown_error
+2016-08-05 16:00:25.749 [info] <0.7.0> Application siploader exited with reason: stopped
+2016-08-05 16:00:34.731 [info] <0.7.0> Application siploader started on node 'nksip_shell@127.0.0.1'
+2016-08-05 16:00:34.737 [error] emulator Error in process <0.392.0> on node 'nksip_shell@127.0.0.1' with exit value: {{badmatch,{error,enoent}},[{parse_config,file,1,[{file,"parse_config.erl"},{line,45}]},{parse_config,recursive_parse,4,[{file,"parse_config.erl"},{line,15}]},{sls_loader,test,0,[{file,"src/sls_loader.erl"},{line,30}]}]}
+
+
+2016-08-05 16:12:44.887 [error] <0.391.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.392.0> exit with reason noproc in context shutdown_error
+2016-08-05 16:12:44.890 [info] <0.7.0> Application siploader exited with reason: stopped
+2016-08-05 16:12:49.032 [info] <0.7.0> Application siploader started on node 'nksip_shell@127.0.0.1'
+2016-08-05 16:12:49.038 [error] emulator Error in process <0.552.0> on node 'nksip_shell@127.0.0.1' with exit value: {{badmatch,{error,enoent}},[{parse_config,file,1,[{file,"parse_config.erl"},{line,45}]},{parse_config,recursive_parse,4,[{file,"parse_config.erl"},{line,15}]},{sls_loader,test,0,[{file,"src/sls_loader.erl"},{line,30}]}]}
+
+
+2016-08-05 16:13:48.119 [error] <0.551.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.552.0> exit with reason noproc in context shutdown_error
+2016-08-05 16:13:48.122 [info] <0.7.0> Application siploader exited with reason: stopped
+2016-08-05 16:13:49.912 [info] <0.7.0> Application siploader started on node 'nksip_shell@127.0.0.1'
+2016-08-05 16:13:49.937 [error] emulator Error in process <0.572.0> on node 'nksip_shell@127.0.0.1' with exit value: {{badmatch,{error,{1450,config_scanner,{illegal,":3"}},1450}},[{parse_config,file,1,[{file,"parse_config.erl"},{line,48}]},{parse_config,recursive_parse,4,[{file,"parse_config.erl"},{line,15}]},{sls_loader,test,0,[{file,"src/sls_load... 
+
+
+2016-08-05 16:14:45.944 [error] <0.571.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.572.0> exit with reason noproc in context shutdown_error
+2016-08-05 16:14:45.946 [info] <0.7.0> Application siploader exited with reason: stopped
+2016-08-05 16:14:47.432 [info] <0.7.0> Application siploader started on node 'nksip_shell@127.0.0.1'
+2016-08-05 16:15:29.648 [error] <0.590.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.591.0> exit with reason noproc in context shutdown_error
+2016-08-05 16:15:29.651 [info] <0.7.0> Application siploader exited with reason: stopped

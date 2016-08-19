@@ -41,12 +41,16 @@ merge_data(Key, Val1, Acc) ->
     end.
 
 file(FileName) ->
-    {ok, File} = file:read_file(FileName),
-    S1 = unicode:characters_to_list(File),
-    S2 = remove_multiline_comments(S1),
-    {ok, Tokens, _EndLineNr} = config_scanner:string(S2),
-%    io:format("Tokens: ~p\n", [Tokens]),
-    check(config_parser:parse(Tokens)).
+    case file:read_file(FileName) of
+    {ok, File} ->  
+	    S1 = unicode:characters_to_list(File),
+	    S2 = remove_multiline_comments(S1),
+	    {ok, Tokens, _EndLineNr} = config_scanner:string(S2),
+	    %%    io:format("Tokens: ~p\n", [Tokens]),
+	    check(config_parser:parse(Tokens));
+	_ ->
+	    {file_not_found, FileName}
+    end.
 
 check({error, Msg}) ->
     {parse_error, Msg};

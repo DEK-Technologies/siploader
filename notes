@@ -1,0 +1,9 @@
+
+
+erl -pa ebin -args_file priv/vm.args 
+
+> application:start(siploader).
+
+% i sls_loader:start_link returneras felaktigt {ok, self()}.
+
+self() ska vara en ny process.

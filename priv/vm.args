@@ -1,0 +1,40 @@
+-pa submodules/nksip/deps/cowboy/ebin 
+-pa submodules/nksip/deps/cowlib/ebin 
+-pa submodules/nksip/deps/goldrush/ebin 
+-pa submodules/nksip/deps/gun/ebin 
+-pa submodules/nksip/deps/jsx/ebin
+-pa submodules/nksip/deps/lager/ebin 
+-pa submodules/nksip/deps/nkdocker/ebin
+-pa submodules/nksip/deps/nklib/ebin
+-pa submodules/nksip/deps/nkpacket/ebin
+-pa submodules/nksip/deps/nkservice/ebin
+-pa submodules/nksip/deps/ranch/ebin 
+-pa submodules/nksip/deps/wsock/ebin 
+-pa submodules/nksip/plugins/ebin
+-pa submodules/nksip/samples/nksip_loadtest/ebin
+-pa submodules/nksip/ebin
+-pa ../siploader/ebin
+
+## Name of the node
+-name nksip_shell@127.0.0.1
+-setcookie nksip
+
+## More processes
++P 1000000
+
+## Treat error_logger warnings as warnings
++W w
+
+## Increase number of concurrent ports/sockets
+-env ERL_MAX_PORTS 65535
+
+## Tweak GC to run more often 
+#-env ERL_FULLSWEEP_AFTER 0
+
+## Set the location of crash dumps
+-env ERL_CRASH_DUMP .
+
+# Start apps
+-s nksip_app
+
+

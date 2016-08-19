@@ -1,0 +1,20 @@
+{application, sls, [
+    {description, "SIP loader"},
+    {vsn, "0.1.0"},
+    {modules, []},
+    {registered, []},
+    {mod, {sls, []}},
+    {applications, [
+        kernel,
+        stdlib,
+        crypto,
+        sasl,
+        ssl,
+        lager,
+        nkpacket,
+        nkservice
+    ]},
+    {env, [
+    {log_level, debug}
+    ]}
+]}.

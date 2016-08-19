@@ -1,0 +1,52 @@
+-module(sls_start).
+
+-export([start/0]).
+
+% make shell-sls
+% c('../../src/sls_start').
+% sls_start:start().
+%
+% nksip:stop_all().
+
+start() ->
+    nksip:stop_all(),
+    start_server(),
+    start_client(client1, 5070, 5071),
+    start_client(client2, 5080, 5081),
+    nksip_trace:start(),
+    {ok, 200, _} = nksip_uac:register(client1, "sip:127.0.0.1", 
+				      [{sip_pass, "1234"}, contact]),
+    {ok, 200, _} = nksip_uac:register(client2, "sip:127.0.0.1", 
+				      [{sip_pass, "1234"}, contact]),
+    DlgId = invite(client2, client1),
+    nksip_uac:bye(DlgId, []).
+
+invite(Client1, Client2) ->
+{ok,200,[{dialog, DlgId}]} =
+	nksip_uac:invite(Client1, "sip:"++atom_to_list(Client2)++"@nksip", 
+			 [{route, "<sip:127.0.0.1;lr>"}, 
+			  {body, nksip_sdp:new()},
+			  auto_2xx_ack]),
+    DlgId.
+
+start_server() ->
+    {ok, _} = nksip:start(server, #{
+			    sip_local_host => "localhost",
+			    callback => nksip_tutorial_server_callbacks,
+			    plugins => [nksip_registrar],
+			    transports => "sip:127.0.0.1:5060, sips:127.0.0.1:5061"
+%%%			    transports => "sip:all:5060, <sip:all:5061;transport=tls>"
+    }).
+
+start_client(Client, SIPport, SIPSport) ->
+    io:format("client ~p started~n", [Client]),
+    {ok, _} = nksip:start(Client, #{
+			    sip_local_host => "localhost",
+			    sip_from => "sip:"++atom_to_list(Client)++"@nksip",
+			    callback => nksip_tutorial_client_callbacks,
+			    plugins => [nksip_uac_auto_auth],
+			    transports => "sip:127.0.0.1:"++
+				integer_to_list(SIPport)++
+				", sips:127.0.0.1:"++
+				integer_to_list(SIPSport)
+			   }).

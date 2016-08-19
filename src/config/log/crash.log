@@ -1,0 +1,39 @@
+2016-08-05 16:00:25 =SUPERVISOR REPORT====
+     Supervisor: {local,sls_sup}
+     Context:    shutdown_error
+     Reason:     noproc
+     Offender:   [{pid,<0.162.0>},{name,sls_loader},{mfargs,{sls_loader,start_link,[]}},{restart_type,permanent},{shutdown,5000},{child_type,worker}]
+
+2016-08-05 16:00:34 =ERROR REPORT====
+Error in process <0.392.0> on node 'nksip_shell@127.0.0.1' with exit value: {{badmatch,{error,enoent}},[{parse_config,file,1,[{file,"parse_config.erl"},{line,45}]},{parse_config,recursive_parse,4,[{file,"parse_config.erl"},{line,15}]},{sls_loader,test,0,[{file,"src/sls_loader.erl"},{line,30}]}]}
+
+2016-08-05 16:12:44 =SUPERVISOR REPORT====
+     Supervisor: {local,sls_sup}
+     Context:    shutdown_error
+     Reason:     noproc
+     Offender:   [{pid,<0.392.0>},{name,sls_loader},{mfargs,{sls_loader,start_link,[]}},{restart_type,permanent},{shutdown,5000},{child_type,worker}]
+
+2016-08-05 16:12:49 =ERROR REPORT====
+Error in process <0.552.0> on node 'nksip_shell@127.0.0.1' with exit value: {{badmatch,{error,enoent}},[{parse_config,file,1,[{file,"parse_config.erl"},{line,45}]},{parse_config,recursive_parse,4,[{file,"parse_config.erl"},{line,15}]},{sls_loader,test,0,[{file,"src/sls_loader.erl"},{line,30}]}]}
+
+2016-08-05 16:13:48 =SUPERVISOR REPORT====
+     Supervisor: {local,sls_sup}
+     Context:    shutdown_error
+     Reason:     noproc
+     Offender:   [{pid,<0.552.0>},{name,sls_loader},{mfargs,{sls_loader,start_link,[]}},{restart_type,permanent},{shutdown,5000},{child_type,worker}]
+
+2016-08-05 16:13:49 =ERROR REPORT====
+Error in process <0.572.0> on node 'nksip_shell@127.0.0.1' with exit value: {{badmatch,{error,{1450,config_scanner,{illegal,":3"}},1450}},[{parse_config,file,1,[{file,"parse_config.erl"},{line,48}]},{parse_config,recursive_parse,4,[{file,"parse_config.erl"},{line,15}]},{sls_loader,test,0,[{file,"src/sls_load... 
+
+2016-08-05 16:14:45 =SUPERVISOR REPORT====
+     Supervisor: {local,sls_sup}
+     Context:    shutdown_error
+     Reason:     noproc
+     Offender:   [{pid,<0.572.0>},{name,sls_loader},{mfargs,{sls_loader,start_link,[]}},{restart_type,permanent},{shutdown,5000},{child_type,worker}]
+
+2016-08-05 16:15:29 =SUPERVISOR REPORT====
+     Supervisor: {local,sls_sup}
+     Context:    shutdown_error
+     Reason:     noproc
+     Offender:   [{pid,<0.591.0>},{name,sls_loader},{mfargs,{sls_loader,start_link,[]}},{restart_type,permanent},{shutdown,5000},{child_type,worker}]
+

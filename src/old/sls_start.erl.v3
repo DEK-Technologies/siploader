@@ -1,0 +1,70 @@
+-module(sls_start).
+
+-export([start/0]).
+
+% make shell-sls
+% c('../../src/sls_start').
+% sls_start:start().
+%
+% nksip:stop_all().
+
+start() ->
+    nksip:stop_all(),
+    start_server(),
+    NumCalls = 100,
+    start_and_register_clients(caller, NumCalls, 5070),
+    start_and_register_clients(callee, NumCalls, 6070),
+%    nksip_trace:start(),
+    Dialogs = make_calls(caller, callee, NumCalls),
+    timer:sleep(5000),
+    make_bye(Dialogs).
+    
+make_calls(Caller, Callee, NumCalls) ->
+    [invite(client_name(Caller, Num), 
+	    client_name(Callee, Num)) ||
+	Num <- lists:seq(1, NumCalls)].
+
+make_bye(Dialogs) ->
+    [nksip_uac:bye(Dialog, []) || Dialog <- Dialogs].
+
+start_and_register_clients(_Client, 0, _Port) ->
+    true;
+start_and_register_clients(Client, Count, Port) ->
+    ClientName = client_name(Client, Count),
+    start_client(ClientName, Port, Port+1),
+    {ok, 200, _} = nksip_uac:register(ClientName, "sip:127.0.0.1", 
+				      [{sip_pass, "1234"}, contact]),
+    start_and_register_clients(Client, Count-1, Port+2).
+    
+client_name(Client, Num) ->
+    list_to_atom(atom_to_list(Client)++integer_to_list(Num)).
+
+invite(Client1, Client2) ->
+{ok,200,[{dialog, DlgId}]} =
+	nksip_uac:invite(Client1, "sip:"++atom_to_list(Client2)++"@nksip", 
+			 [{route, "<sip:127.0.0.1;lr>"}, 
+			  {body, nksip_sdp:new()},
+			  auto_2xx_ack]),
+    DlgId.
+
+start_server() ->
+    {ok, _} = nksip:start(server, #{
+			    sip_local_host => "localhost",
+			    callback => nksip_tutorial_server_callbacks,
+			    plugins => [nksip_registrar],
+			    transports => "sip:127.0.0.1:5060, sips:127.0.0.1:5061"
+%%%			    transports => "sip:all:5060, <sip:all:5061;transport=tls>"
+    }).
+
+start_client(Client, SIPport, SIPSport) ->
+    io:format("client ~p started~n", [Client]),
+    {ok, _} = nksip:start(Client, #{
+			    sip_local_host => "localhost",
+			    sip_from => "sip:"++atom_to_list(Client)++"@nksip",
+			    callback => nksip_tutorial_client_callbacks,
+			    plugins => [nksip_uac_auto_auth],
+			    transports => "sip:127.0.0.1:"++
+				integer_to_list(SIPport)++
+				", sips:127.0.0.1:"++
+				integer_to_list(SIPSport)
+			   }).

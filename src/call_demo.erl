@@ -45,11 +45,11 @@ start_and_register_clients(Client, NumCalls, Port) ->
 client_name(Client, Num) ->
     list_to_atom(atom_to_list(Client)++integer_to_list(Num)).
 
-start_client(Client, SIPport, SIPSport) ->
-    io:format("client ~p started~n", [Client]),
-    {ok, _} = nksip:start(Client, #{
+start_client(ClientName, SIPport, SIPSport) ->
+    io:format("client ~p started~n", [ClientName]),
+    {ok, _} = nksip:start(ClientName, #{
 			    sip_local_host => "localhost",
-			    sip_from => "sip:"++atom_to_list(Client)++"@nksip",
+			    sip_from => "sip:"++atom_to_list(ClientName)++"@nksip",
 			    callback => nksip_tutorial_client_callbacks,
 			    plugins => [nksip_uac_auto_auth],
 			    transports => "sip:127.0.0.1:"++

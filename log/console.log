@@ -1,0 +1,252 @@
+2016-06-23 17:02:46.637 [notice] <0.121.0>@nkpacket_app:start:65 NkPACKET vmaster has started.
+2016-06-23 17:02:46.648 [notice] <0.128.0>@nkservice_app:start:69 NkSERVICE vmaster has started.
+2016-06-23 17:02:46.712 [notice] <0.133.0>@nksip_app:start:94 NkSIP vmaster has started. Main IP is 10.10.66.242 (::1)
+2016-06-23 17:14:28.868 [notice] <0.121.0>@nkpacket_app:start:65 NkPACKET vmaster has started.
+2016-06-23 17:14:28.877 [notice] <0.128.0>@nkservice_app:start:69 NkSERVICE vmaster has started.
+2016-06-23 17:14:28.940 [notice] <0.133.0>@nksip_app:start:94 NkSIP vmaster has started. Main IP is 10.10.66.242 (::1)
+2016-06-23 17:19:33.544 [notice] <0.121.0>@nkpacket_app:start:65 NkPACKET vmaster has started.
+2016-06-23 17:19:33.562 [notice] <0.128.0>@nkservice_app:start:69 NkSERVICE vmaster has started.
+2016-06-23 17:19:33.644 [notice] <0.133.0>@nksip_app:start:94 NkSIP vmaster has started. Main IP is 10.10.66.242 (::1)
+2016-06-23 17:35:36.213 [info] <0.7.0> Application lager started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:35:36.240 [info] <0.7.0> Application ssh started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:35:36.248 [info] <0.7.0> Application ranch started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:35:36.252 [info] <0.7.0> Application cowlib started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:35:36.266 [info] <0.7.0> Application cowboy started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:35:36.274 [info] <0.7.0> Application gun started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:35:36.305 [info] <0.7.0> Application nklib started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:35:36.334 [notice] <0.123.0>@nkpacket_app:start:65 NkPACKET vmaster has started.
+2016-06-23 17:35:36.334 [info] <0.7.0> Application nkpacket started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:35:36.342 [notice] <0.130.0>@nkservice_app:start:69 NkSERVICE vmaster has started.
+2016-06-23 17:35:36.343 [info] <0.7.0> Application nkservice started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:35:36.405 [notice] <0.135.0>@nksip_app:start:94 NkSIP vmaster has started. Main IP is 10.10.66.242 (::1)
+2016-06-23 17:35:36.406 [info] <0.7.0> Application nksip started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:36:06.058 [error] <0.163.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at undefined exit with reason ok in context start_error
+2016-06-23 17:36:06.058 [error] <0.161.0> CRASH REPORT Process <0.161.0> with 0 neighbours exited with reason: {{shutdown,{failed_to_start_child,sls_loader,ok}},{sls_app,start,[normal,[]]}} in application_master:init/4 line 133
+2016-06-23 17:36:06.059 [info] <0.7.0> Application siploader exited with reason: {{shutdown,{failed_to_start_child,sls_loader,ok}},{sls_app,start,[normal,[]]}}
+2016-06-23 17:42:25.330 [info] <0.7.0> Application lager started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:42:25.353 [info] <0.7.0> Application ssh started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:42:25.359 [info] <0.7.0> Application ranch started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:42:25.363 [info] <0.7.0> Application cowlib started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:42:25.385 [info] <0.7.0> Application cowboy started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:42:25.394 [info] <0.7.0> Application gun started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:42:25.422 [info] <0.7.0> Application nklib started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:42:25.450 [notice] <0.123.0>@nkpacket_app:start:65 NkPACKET vmaster has started.
+2016-06-23 17:42:25.450 [info] <0.7.0> Application nkpacket started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:42:25.464 [notice] <0.130.0>@nkservice_app:start:69 NkSERVICE vmaster has started.
+2016-06-23 17:42:25.465 [info] <0.7.0> Application nkservice started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:42:25.554 [notice] <0.135.0>@nksip_app:start:94 NkSIP vmaster has started. Main IP is 10.10.66.242 (::1)
+2016-06-23 17:42:25.554 [info] <0.7.0> Application nksip started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:42:33.064 [error] <0.159.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at undefined exit with reason ok in context start_error
+2016-06-23 17:42:33.064 [error] <0.157.0> CRASH REPORT Process <0.157.0> with 0 neighbours exited with reason: {{shutdown,{failed_to_start_child,sls_loader,ok}},{sls_app,start,[normal,[]]}} in application_master:init/4 line 133
+2016-06-23 17:42:33.064 [info] <0.7.0> Application siploader exited with reason: {{shutdown,{failed_to_start_child,sls_loader,ok}},{sls_app,start,[normal,[]]}}
+2016-06-23 17:44:28.034 [info] <0.7.0> Application lager started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:44:28.060 [info] <0.7.0> Application ssh started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:44:28.068 [info] <0.7.0> Application ranch started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:44:28.072 [info] <0.7.0> Application cowlib started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:44:28.085 [info] <0.7.0> Application cowboy started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:44:28.093 [info] <0.7.0> Application gun started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:44:28.123 [info] <0.7.0> Application nklib started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:44:28.150 [notice] <0.123.0>@nkpacket_app:start:65 NkPACKET vmaster has started.
+2016-06-23 17:44:28.151 [info] <0.7.0> Application nkpacket started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:44:28.159 [notice] <0.130.0>@nkservice_app:start:69 NkSERVICE vmaster has started.
+2016-06-23 17:44:28.160 [info] <0.7.0> Application nkservice started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:44:28.228 [notice] <0.135.0>@nksip_app:start:94 NkSIP vmaster has started. Main IP is 10.10.66.242 (::1)
+2016-06-23 17:44:28.228 [info] <0.7.0> Application nksip started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:44:35.464 [error] <0.159.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at undefined exit with reason {ok,pid} in context start_error
+2016-06-23 17:44:35.465 [error] <0.157.0> CRASH REPORT Process <0.157.0> with 0 neighbours exited with reason: {{shutdown,{failed_to_start_child,sls_loader,{ok,pid}}},{sls_app,start,[normal,[]]}} in application_master:init/4 line 133
+2016-06-23 17:44:35.465 [info] <0.7.0> Application siploader exited with reason: {{shutdown,{failed_to_start_child,sls_loader,{ok,pid}}},{sls_app,start,[normal,[]]}}
+2016-06-23 17:49:01.235 [info] <0.7.0> Application lager started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:49:01.274 [info] <0.7.0> Application ssh started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:49:01.296 [info] <0.7.0> Application ranch started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:49:01.300 [info] <0.7.0> Application cowlib started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:49:01.322 [info] <0.7.0> Application cowboy started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:49:01.333 [info] <0.7.0> Application gun started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:49:01.366 [info] <0.7.0> Application nklib started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:49:01.399 [notice] <0.123.0>@nkpacket_app:start:65 NkPACKET vmaster has started.
+2016-06-23 17:49:01.399 [info] <0.7.0> Application nkpacket started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:49:01.419 [notice] <0.130.0>@nkservice_app:start:69 NkSERVICE vmaster has started.
+2016-06-23 17:49:01.419 [info] <0.7.0> Application nkservice started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:49:01.502 [notice] <0.135.0>@nksip_app:start:94 NkSIP vmaster has started. Main IP is 10.10.66.242 (::1)
+2016-06-23 17:49:01.502 [info] <0.7.0> Application nksip started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:49:30.941 [info] <0.7.0> Application siploader started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:56:20.982 [info] <0.7.0> Application lager started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:56:21.012 [info] <0.7.0> Application ssh started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:56:21.018 [info] <0.7.0> Application ranch started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:56:21.022 [info] <0.7.0> Application cowlib started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:56:21.037 [info] <0.7.0> Application cowboy started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:56:21.045 [info] <0.7.0> Application gun started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:56:21.078 [info] <0.7.0> Application nklib started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:56:21.107 [notice] <0.123.0>@nkpacket_app:start:65 NkPACKET vmaster has started.
+2016-06-23 17:56:21.107 [info] <0.7.0> Application nkpacket started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:56:21.115 [notice] <0.130.0>@nkservice_app:start:69 NkSERVICE vmaster has started.
+2016-06-23 17:56:21.115 [info] <0.7.0> Application nkservice started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:56:21.179 [notice] <0.135.0>@nksip_app:start:94 NkSIP vmaster has started. Main IP is 10.10.66.242 (::1)
+2016-06-23 17:56:21.179 [info] <0.7.0> Application nksip started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:56:31.032 [info] <0.7.0> Application siploader started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:56:31.044 [error] emulator Error in process <0.160.0> on node 'nksip_shell@127.0.0.1' with exit value: {{badmatch,{error,enoent}},[{parse_config,file,1,[{file,"src/config/parse_config.erl"},{line,44}]},{parse_config,recursive_parse,4,[{file,"src/config/parse_config.erl"},{line,15}]},{sls_loader,test,0,[{file,"src/sls_loade... 
+
+
+2016-06-23 17:57:12.430 [error] <0.159.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.160.0> exit with reason noproc in context shutdown_error
+2016-06-23 17:57:46.880 [info] <0.7.0> Application lager started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:57:46.923 [info] <0.7.0> Application ssh started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:57:46.938 [info] <0.7.0> Application ranch started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:57:46.945 [info] <0.7.0> Application cowlib started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:57:46.963 [info] <0.7.0> Application cowboy started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:57:46.976 [info] <0.7.0> Application gun started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:57:47.018 [info] <0.7.0> Application nklib started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:57:47.064 [notice] <0.123.0>@nkpacket_app:start:65 NkPACKET vmaster has started.
+2016-06-23 17:57:47.064 [info] <0.7.0> Application nkpacket started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:57:47.072 [notice] <0.130.0>@nkservice_app:start:69 NkSERVICE vmaster has started.
+2016-06-23 17:57:47.072 [info] <0.7.0> Application nkservice started on node 'nksip_shell@127.0.0.1'
+2016-06-23 17:57:47.149 [notice] <0.135.0>@nksip_app:start:94 NkSIP vmaster has started. Main IP is 10.10.66.242 (::1)
+2016-06-23 17:57:47.149 [info] <0.7.0> Application nksip started on node 'nksip_shell@127.0.0.1'
+2016-08-05 15:43:10.083 [info] <0.7.0> Application lager started on node 'nksip_shell@127.0.0.1'
+2016-08-05 15:43:10.135 [info] <0.7.0> Application ssh started on node 'nksip_shell@127.0.0.1'
+2016-08-05 15:43:10.149 [info] <0.7.0> Application ranch started on node 'nksip_shell@127.0.0.1'
+2016-08-05 15:43:10.154 [info] <0.7.0> Application cowlib started on node 'nksip_shell@127.0.0.1'
+2016-08-05 15:43:10.180 [info] <0.7.0> Application cowboy started on node 'nksip_shell@127.0.0.1'
+2016-08-05 15:43:10.191 [info] <0.7.0> Application gun started on node 'nksip_shell@127.0.0.1'
+2016-08-05 15:43:10.230 [info] <0.7.0> Application nklib started on node 'nksip_shell@127.0.0.1'
+2016-08-05 15:43:10.286 [notice] <0.123.0>@nkpacket_app:start:65 NkPACKET vmaster has started.
+2016-08-05 15:43:10.287 [info] <0.7.0> Application nkpacket started on node 'nksip_shell@127.0.0.1'
+2016-08-05 15:43:10.306 [notice] <0.130.0>@nkservice_app:start:69 NkSERVICE vmaster has started.
+2016-08-05 15:43:10.306 [info] <0.7.0> Application nkservice started on node 'nksip_shell@127.0.0.1'
+2016-08-05 15:43:10.456 [notice] <0.135.0>@nksip_app:start:94 NkSIP vmaster has started. Main IP is 10.10.66.242 (::1)
+2016-08-05 15:43:10.457 [info] <0.7.0> Application nksip started on node 'nksip_shell@127.0.0.1'
+2016-08-05 15:43:27.048 [info] <0.7.0> Application siploader started on node 'nksip_shell@127.0.0.1'
+2016-08-05 15:43:27.072 [error] emulator Error in process <0.162.0> on node 'nksip_shell@127.0.0.1' with exit value: {{badmatch,{error,enoent}},[{parse_config,file,1,[{file,"src/config/parse_config.erl"},{line,44}]},{parse_config,recursive_parse,4,[{file,"src/config/parse_config.erl"},{line,15}]},{sls_loader,test,0,[{file,"src/sls_loade... 
+
+
+2016-08-19 11:53:48.968 [info] <0.7.0> Application lager started on node 'nksip_shell@127.0.0.1'
+2016-08-19 11:53:49.037 [info] <0.7.0> Application ssh started on node 'nksip_shell@127.0.0.1'
+2016-08-19 11:53:49.063 [info] <0.7.0> Application ranch started on node 'nksip_shell@127.0.0.1'
+2016-08-19 11:53:49.068 [info] <0.7.0> Application cowlib started on node 'nksip_shell@127.0.0.1'
+2016-08-19 11:53:49.111 [info] <0.7.0> Application cowboy started on node 'nksip_shell@127.0.0.1'
+2016-08-19 11:53:49.126 [info] <0.7.0> Application gun started on node 'nksip_shell@127.0.0.1'
+2016-08-19 11:53:49.187 [info] <0.7.0> Application nklib started on node 'nksip_shell@127.0.0.1'
+2016-08-19 11:53:49.267 [notice] <0.123.0>@nkpacket_app:start:65 NkPACKET vmaster has started.
+2016-08-19 11:53:49.267 [info] <0.7.0> Application nkpacket started on node 'nksip_shell@127.0.0.1'
+2016-08-19 11:53:49.290 [notice] <0.130.0>@nkservice_app:start:69 NkSERVICE vmaster has started.
+2016-08-19 11:53:49.290 [info] <0.7.0> Application nkservice started on node 'nksip_shell@127.0.0.1'
+2016-08-19 11:53:49.486 [notice] <0.135.0>@nksip_app:start:94 NkSIP vmaster has started. Main IP is 10.10.66.242 (::1)
+2016-08-19 11:53:49.486 [info] <0.7.0> Application nksip started on node 'nksip_shell@127.0.0.1'
+2016-08-19 11:54:07.678 [info] <0.7.0> Application siploader started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:23:47.977 [error] <0.161.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.162.0> exit with reason noproc in context shutdown_error
+2016-08-19 13:29:30.145 [info] <0.7.0> Application lager started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:29:30.186 [info] <0.7.0> Application ssh started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:29:30.199 [info] <0.7.0> Application ranch started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:29:30.203 [info] <0.7.0> Application cowlib started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:29:30.218 [info] <0.7.0> Application cowboy started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:29:30.227 [info] <0.7.0> Application gun started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:29:30.259 [info] <0.7.0> Application nklib started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:29:30.288 [notice] <0.123.0>@nkpacket_app:start:65 NkPACKET vmaster has started.
+2016-08-19 13:29:30.289 [info] <0.7.0> Application nkpacket started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:29:30.298 [notice] <0.130.0>@nkservice_app:start:69 NkSERVICE vmaster has started.
+2016-08-19 13:29:30.298 [info] <0.7.0> Application nkservice started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:29:30.362 [notice] <0.135.0>@nksip_app:start:94 NkSIP vmaster has started. Main IP is 10.10.66.242 (::1)
+2016-08-19 13:29:30.362 [info] <0.7.0> Application nksip started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:29:41.630 [info] <0.7.0> Application siploader started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:32:17.429 [error] <0.161.0> gen_server sls_loader terminated with reason: {bad_key,[{maps,get,[callOrig,#{callGroup => "\n\t\tpublicIdPrefix=acc1;\n\t\tIdLength=5;\n\t\tIdRange=00000..00009;\n                homeDomain=system.test;\n                password=imt40imt40;\n                privateIdPrefix=acc1;\n                privateDomain=system.test;\n                telIdPrefix=123456;",generic => #{burstCalcMethod => "noMemCs",userWatchdog => 350.0},name => "acc1Aacc1B",trafficCase => "CallOrig",trafficSpecific => #{callOrig => #{allowMultipleEarlyDialogs => false,callHoldMax => ...,...},...},...}],...},...]}
+2016-08-19 13:32:17.429 [error] <0.161.0> CRASH REPORT Process sls_loader with 0 neighbours exited with reason: {bad_key,[{maps,get,[callOrig,#{callGroup => "\n\t\tpublicIdPrefix=acc1;\n\t\tIdLength=5;\n\t\tIdRange=00000..00009;\n                homeDomain=system.test;\n                password=imt40imt40;\n                privateIdPrefix=acc1;\n                privateDomain=system.test;\n                telIdPrefix=123456;",generic => #{burstCalcMethod => "noMemCs",userWatchdog => 350.0},name => "acc1Aacc1B",trafficCase => "CallOrig",trafficSpecific => #{callOrig => #{allowMultipleEarlyDialogs => false,callHoldMax => ...,...},...},...}],...},...]} in gen_server:terminate/7 line 804
+2016-08-19 13:32:17.430 [error] <0.160.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.161.0> exit with reason {bad_key,[{maps,get,[callOrig,#{callGroup => "\n\t\tpublicIdPrefix=acc1;\n\t\tIdLength=5;\n\t\tIdRange=00000..00009;\n                homeDomain=system.test;\n                password=imt40imt40;\n                privateIdPrefix=acc1;\n                privateDomain=system.test;\n                telIdPrefix=123456;",generic => #{burstCalcMethod => "noMemCs",userWatchdog => 350.0},name => "acc1Aacc1B",trafficCase => "CallOrig",trafficSpecific => #{callOrig => #{allowMultipleEarlyDialogs => false,callHoldMax => ...,...},...},...}],...},...]} in context child_terminated
+2016-08-19 13:32:17.430 [error] <0.160.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.161.0> exit with reason reached_max_restart_intensity in context shutdown
+2016-08-19 13:32:17.437 [info] <0.7.0> Application siploader exited with reason: shutdown
+2016-08-19 13:34:23.411 [info] <0.7.0> Application lager started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:34:23.442 [info] <0.7.0> Application ssh started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:34:23.449 [info] <0.7.0> Application ranch started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:34:23.454 [info] <0.7.0> Application cowlib started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:34:23.468 [info] <0.7.0> Application cowboy started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:34:23.477 [info] <0.7.0> Application gun started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:34:23.509 [info] <0.7.0> Application nklib started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:34:23.538 [notice] <0.123.0>@nkpacket_app:start:65 NkPACKET vmaster has started.
+2016-08-19 13:34:23.539 [info] <0.7.0> Application nkpacket started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:34:23.547 [notice] <0.130.0>@nkservice_app:start:69 NkSERVICE vmaster has started.
+2016-08-19 13:34:23.548 [info] <0.7.0> Application nkservice started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:34:23.615 [notice] <0.135.0>@nksip_app:start:94 NkSIP vmaster has started. Main IP is 10.10.66.242 (::1)
+2016-08-19 13:34:23.615 [info] <0.7.0> Application nksip started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:36:00.138 [info] <0.7.0> Application siploader started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:36:27.327 [error] <0.178.0> gen_server sls_loader terminated with reason: bad argument in call to maps:find('INCLUDE', {file_not_found,"/home/dansahlin/proj/siploader/titan1.cfg"}) in maps:get/3 line 154
+2016-08-19 13:36:27.327 [error] <0.178.0> CRASH REPORT Process sls_loader with 0 neighbours exited with reason: bad argument in call to maps:find('INCLUDE', {file_not_found,"/home/dansahlin/proj/siploader/titan1.cfg"}) in maps:get/3 line 154
+2016-08-19 13:36:27.328 [error] <0.177.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.178.0> exit with reason bad argument in call to maps:find('INCLUDE', {file_not_found,"/home/dansahlin/proj/siploader/titan1.cfg"}) in maps:get/3 line 154 in context child_terminated
+2016-08-19 13:36:27.328 [error] <0.177.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.178.0> exit with reason reached_max_restart_intensity in context shutdown
+2016-08-19 13:36:27.350 [info] <0.7.0> Application siploader exited with reason: shutdown
+2016-08-19 13:37:27.709 [info] <0.7.0> Application siploader started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:37:53.021 [error] <0.204.0> gen_server sls_loader terminated with reason: bad argument in call to maps:find('INCLUDE', {file_not_found,"/home/dansahlin/proj/siploader/titansim/titan1.cfg"}) in maps:get/3 line 154
+2016-08-19 13:37:53.022 [error] <0.204.0> CRASH REPORT Process sls_loader with 0 neighbours exited with reason: bad argument in call to maps:find('INCLUDE', {file_not_found,"/home/dansahlin/proj/siploader/titansim/titan1.cfg"}) in maps:get/3 line 154
+2016-08-19 13:37:53.022 [error] <0.203.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.204.0> exit with reason bad argument in call to maps:find('INCLUDE', {file_not_found,"/home/dansahlin/proj/siploader/titansim/titan1.cfg"}) in maps:get/3 line 154 in context child_terminated
+2016-08-19 13:37:53.023 [error] <0.203.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.204.0> exit with reason reached_max_restart_intensity in context shutdown
+2016-08-19 13:37:53.030 [info] <0.7.0> Application siploader exited with reason: shutdown
+2016-08-19 13:38:19.133 [info] <0.7.0> Application siploader started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:38:41.190 [error] <0.223.0> gen_server sls_loader terminated with reason: no match of right hand value [callTerm,media,registration] in sls_loader:trafficCase/2 line 86
+2016-08-19 13:38:41.190 [error] <0.223.0> CRASH REPORT Process sls_loader with 0 neighbours exited with reason: no match of right hand value [callTerm,media,registration] in sls_loader:trafficCase/2 line 86 in gen_server:terminate/7 line 804
+2016-08-19 13:38:41.190 [error] <0.222.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.223.0> exit with reason no match of right hand value [callTerm,media,registration] in sls_loader:trafficCase/2 line 86 in context child_terminated
+2016-08-19 13:38:41.190 [error] <0.222.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.223.0> exit with reason reached_max_restart_intensity in context shutdown
+2016-08-19 13:38:41.202 [info] <0.7.0> Application siploader exited with reason: shutdown
+2016-08-19 13:50:52.533 [info] <0.7.0> Application lager started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:50:52.558 [info] <0.7.0> Application ssh started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:50:52.565 [info] <0.7.0> Application ranch started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:50:52.569 [info] <0.7.0> Application cowlib started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:50:52.583 [info] <0.7.0> Application cowboy started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:50:52.591 [info] <0.7.0> Application gun started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:50:52.621 [info] <0.7.0> Application nklib started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:50:52.648 [notice] <0.123.0>@nkpacket_app:start:65 NkPACKET vmaster has started.
+2016-08-19 13:50:52.649 [info] <0.7.0> Application nkpacket started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:50:52.662 [notice] <0.130.0>@nkservice_app:start:69 NkSERVICE vmaster has started.
+2016-08-19 13:50:52.662 [info] <0.7.0> Application nkservice started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:50:52.723 [notice] <0.135.0>@nksip_app:start:94 NkSIP vmaster has started. Main IP is 10.10.66.242 (::1)
+2016-08-19 13:50:52.724 [info] <0.7.0> Application nksip started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:51:09.319 [info] <0.7.0> Application siploader started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:51:45.940 [error] <0.162.0> gen_server sls_loader terminated with reason: {bad_key,[{maps,get,[answeringTimeMax,#{callTerm => #{answeringMode => #{normal => []},answeringTimeMax => 5.0,answeringTimeMin => 5.0,provisionalResponseToEnable => 'RINGING180',sdpIn18x => false,trying100Enabled => false},media => #{enabled => true,generator => #{mlsim => #{enableMLSimPlus => true,enableSessionCriteria => true,enabled => true,maxNumberOfSessions => 2,nrOfNormalSessions => 0,simplificationLevel => 0,startNumOfSessions => 1,supportedCodecs => ['AMR_122_OA','H_263']}}},registration => ...}],...},...]}
+2016-08-19 13:51:45.940 [error] <0.162.0> CRASH REPORT Process sls_loader with 0 neighbours exited with reason: {bad_key,[{maps,get,[answeringTimeMax,#{callTerm => #{answeringMode => #{normal => []},answeringTimeMax => 5.0,answeringTimeMin => 5.0,provisionalResponseToEnable => 'RINGING180',sdpIn18x => false,trying100Enabled => false},media => #{enabled => true,generator => #{mlsim => #{enableMLSimPlus => true,enableSessionCriteria => true,enabled => true,maxNumberOfSessions => 2,nrOfNormalSessions => 0,simplificationLevel => 0,startNumOfSessions => 1,supportedCodecs => ['AMR_122_OA','H_263']}}},registration => ...}],...},...]} in gen_server:terminate/7 line 804
+2016-08-19 13:51:45.941 [error] <0.161.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.162.0> exit with reason {bad_key,[{maps,get,[answeringTimeMax,#{callTerm => #{answeringMode => #{normal => []},answeringTimeMax => 5.0,answeringTimeMin => 5.0,provisionalResponseToEnable => 'RINGING180',sdpIn18x => false,trying100Enabled => false},media => #{enabled => true,generator => #{mlsim => #{enableMLSimPlus => true,enableSessionCriteria => true,enabled => true,maxNumberOfSessions => 2,nrOfNormalSessions => 0,simplificationLevel => 0,startNumOfSessions => 1,supportedCodecs => ['AMR_122_OA','H_263']}}},registration => ...}],...},...]} in context child_terminated
+2016-08-19 13:51:45.941 [error] <0.161.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.162.0> exit with reason reached_max_restart_intensity in context shutdown
+2016-08-19 13:51:45.952 [info] <0.7.0> Application siploader exited with reason: shutdown
+2016-08-19 13:54:01.514 [info] <0.7.0> Application lager started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:54:01.543 [info] <0.7.0> Application ssh started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:54:01.550 [info] <0.7.0> Application ranch started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:54:01.555 [info] <0.7.0> Application cowlib started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:54:01.570 [info] <0.7.0> Application cowboy started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:54:01.580 [info] <0.7.0> Application gun started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:54:01.626 [info] <0.7.0> Application nklib started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:54:01.653 [notice] <0.123.0>@nkpacket_app:start:65 NkPACKET vmaster has started.
+2016-08-19 13:54:01.653 [info] <0.7.0> Application nkpacket started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:54:01.661 [notice] <0.130.0>@nkservice_app:start:69 NkSERVICE vmaster has started.
+2016-08-19 13:54:01.661 [info] <0.7.0> Application nkservice started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:54:01.720 [notice] <0.135.0>@nksip_app:start:94 NkSIP vmaster has started. Main IP is 10.10.66.242 (::1)
+2016-08-19 13:54:01.721 [info] <0.7.0> Application nksip started on node 'nksip_shell@127.0.0.1'
+2016-08-19 13:54:12.681 [info] <0.7.0> Application siploader started on node 'nksip_shell@127.0.0.1'
+2016-08-19 14:18:25.757 [info] <0.7.0> Application lager started on node 'nksip_shell@127.0.0.1'
+2016-08-19 14:18:25.789 [info] <0.7.0> Application ssh started on node 'nksip_shell@127.0.0.1'
+2016-08-19 14:18:25.796 [info] <0.7.0> Application ranch started on node 'nksip_shell@127.0.0.1'
+2016-08-19 14:18:25.800 [info] <0.7.0> Application cowlib started on node 'nksip_shell@127.0.0.1'
+2016-08-19 14:18:25.821 [info] <0.7.0> Application cowboy started on node 'nksip_shell@127.0.0.1'
+2016-08-19 14:18:25.829 [info] <0.7.0> Application gun started on node 'nksip_shell@127.0.0.1'
+2016-08-19 14:18:25.860 [info] <0.7.0> Application nklib started on node 'nksip_shell@127.0.0.1'
+2016-08-19 14:18:25.888 [notice] <0.123.0>@nkpacket_app:start:65 NkPACKET vmaster has started.
+2016-08-19 14:18:25.888 [info] <0.7.0> Application nkpacket started on node 'nksip_shell@127.0.0.1'
+2016-08-19 14:18:25.896 [notice] <0.130.0>@nkservice_app:start:69 NkSERVICE vmaster has started.
+2016-08-19 14:18:25.896 [info] <0.7.0> Application nkservice started on node 'nksip_shell@127.0.0.1'
+2016-08-19 14:18:25.960 [notice] <0.135.0>@nksip_app:start:94 NkSIP vmaster has started. Main IP is 10.10.66.242 (::1)
+2016-08-19 14:18:25.960 [info] <0.7.0> Application nksip started on node 'nksip_shell@127.0.0.1'
+2016-08-19 14:18:37.933 [info] <0.7.0> Application sls started on node 'nksip_shell@127.0.0.1'
+2016-08-19 16:50:05.721 [info] <0.7.0> Application lager started on node 'nksip_shell@127.0.0.1'
+2016-08-19 16:50:05.742 [info] <0.7.0> Application ssh started on node 'nksip_shell@127.0.0.1'
+2016-08-19 16:50:05.748 [info] <0.7.0> Application ranch started on node 'nksip_shell@127.0.0.1'
+2016-08-19 16:50:05.751 [info] <0.7.0> Application cowlib started on node 'nksip_shell@127.0.0.1'
+2016-08-19 16:50:05.762 [info] <0.7.0> Application cowboy started on node 'nksip_shell@127.0.0.1'
+2016-08-19 16:50:05.769 [info] <0.7.0> Application gun started on node 'nksip_shell@127.0.0.1'
+2016-08-19 16:50:05.794 [info] <0.7.0> Application nklib started on node 'nksip_shell@127.0.0.1'
+2016-08-19 16:50:05.825 [notice] <0.123.0>@nkpacket_app:start:65 NkPACKET vmaster has started.
+2016-08-19 16:50:05.825 [info] <0.7.0> Application nkpacket started on node 'nksip_shell@127.0.0.1'
+2016-08-19 16:50:05.831 [notice] <0.130.0>@nkservice_app:start:69 NkSERVICE vmaster has started.
+2016-08-19 16:50:05.832 [info] <0.7.0> Application nkservice started on node 'nksip_shell@127.0.0.1'
+2016-08-19 16:50:05.890 [notice] <0.135.0>@nksip_app:start:94 NkSIP vmaster has started. Main IP is 10.10.66.242 (::1)
+2016-08-19 16:50:05.890 [info] <0.7.0> Application nksip started on node 'nksip_shell@127.0.0.1'
+2016-08-19 16:50:19.616 [info] <0.7.0> Application sls started on node 'nksip_shell@127.0.0.1'
+2016-08-19 16:51:29.395 [error] <0.181.0> CRASH REPORT Process <0.181.0> with 0 neighbours exited with reason: {invalid_plugin,nksip_tutorial_server_callbacks} in gen_server:init_it/6 line 322
+2016-08-19 16:51:29.395 [error] <0.180.0> Supervisor {<0.180.0>,nkservice_service_sup} had child server started with nkservice_server:start_link(#{cache => #{log_level => 6},callback => nksip_tutorial_server_callbacks,class => nksip,id => armejl7,...}) at undefined exit with reason {invalid_plugin,nksip_tutorial_server_callbacks} in context start_error
+2016-08-19 16:51:29.396 [error] <0.161.0> gen_server sls_loader terminated with reason: no match of right hand value {error,{invalid_plugin,nksip_tutorial_server_callbacks}} in sls_loader:start_server/0 line 235
+2016-08-19 16:51:29.397 [error] <0.161.0> CRASH REPORT Process sls_loader with 0 neighbours exited with reason: no match of right hand value {error,{invalid_plugin,nksip_tutorial_server_callbacks}} in sls_loader:start_server/0 line 235 in gen_server:terminate/7 line 804
+2016-08-19 16:51:29.397 [error] <0.160.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.161.0> exit with reason no match of right hand value {error,{invalid_plugin,nksip_tutorial_server_callbacks}} in sls_loader:start_server/0 line 235 in context child_terminated
+2016-08-19 16:51:29.397 [error] <0.160.0> Supervisor sls_sup had child sls_loader started with sls_loader:start_link() at <0.161.0> exit with reason reached_max_restart_intensity in context shutdown
+2016-08-19 16:51:29.401 [info] <0.7.0> Application sls exited with reason: shutdown

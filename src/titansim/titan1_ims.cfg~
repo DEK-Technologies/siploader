@@ -1,0 +1,1450 @@
+[DEFINE]
+
+
+[MODULE_PARAMETERS]
+tsp_IMS_Configuration_Scenarios :=
+{
+{
+
+  scenarioName := "Call",
+  trafficCases := {
+
+  ///////////////////////////////////////////////////////////////////////////////
+  //
+  //  Case:               acc1Aacc1B - acc1B
+  //  Description:        10 UE access1 to access1 UDP call, Ipv6, Media enabled
+  //
+  ///////////////////////////////////////////////////////////////////////////////
+
+  {
+      name := "acc1Aacc1B",
+      trafficCase := "CallOrig",
+		callGroup := "
+		publicIdPrefix=acc1;
+		IdLength=5;
+		IdRange=00000..00009;
+                homeDomain=system.test;
+                password=imt40imt40;
+                privateIdPrefix=acc1;
+                privateDomain=system.test;
+                telIdPrefix=123456;",
+      generic := {
+        userWatchdog := 350.00,
+        burstCalcMethod := "noMemCs"
+      },
+      transport := {
+        {
+          host := "",
+          hostTransport := {
+            {
+              proxyTransport := {
+                preferredTransport := "udp",
+                transportType := IPL4, // IPL4 - use IPL4 testport, IPL2 - use LANL2 testport
+                proxyList := {
+                  {
+                    proxyName := "3001:21::4",
+                    proxyPort := 5060
+                  }
+                }//proxyList
+              },//proxyTransport
+              simulationType := {
+                ueTransport := {
+                  ueIpLow    := "3001:100:16::2",
+                  ueIpHigh   := "3001:100:16::6",
+                  uePortLow  := 10000,
+                  uePortHigh := 30000
+                }//ueTransport
+              }//simulationType
+            }
+          }//hostTransport
+        }
+      },//transport
+      trafficSpecific := {
+        registration := {
+          rps := 1.0,
+          tempId := false,
+          registrationExpires := 3600.000000,
+          sbgRegMinExpires := 0.0,
+          reRegMargin := 5.0,
+          reRegistration := true,
+          maxRetryAfter := 10,
+          retryAfterFail := 30.0,
+          regWatchdog := 40.0,
+          PAccessNetworkInfo := "",
+          includeTransportInContact := true,
+          distributeRegister := false,
+          delayInitialRegister := 0.0,
+          authHeaderInInitialReg := false,
+          deregisterCurrentContactOnly := false,
+          enableSTUN := false,
+          keepAliveSTUN := 30.0,
+          halfcall := false
+        },
+        callOrig := {
+          cps := 0.0,
+          calledGroup := "publicIdPrefix=acc1;IdLength=5;IdRange=05000..05009;homeDomain=system.test;",
+          callHoldMin := 180.0,
+          callHoldMax := 180.0,
+          cancelTimeMin := 0.0,
+          cancelTimeMax := 0.0,
+          useTelUri := false,
+          maxRetryAfter := 3,
+          allowMultipleEarlyDialogs := false
+        },
+        media :=
+        {
+          enabled := true,
+          generator := {
+            mlsim :=
+            {
+		enabled := true,
+		enableMLSimPlus := true,
+                maxNumberOfSessions := 2,
+                supportedCodecs := {AMR_122_OA,H_263},
+                startNumOfSessions := 1,
+                simplificationLevel := 0,
+                nrOfNormalSessions := 0,
+                enableSessionCriteria := true
+            }
+          }
+        }
+      }
+    },//trafficCase - acc1Aacc1B
+    {
+      name := "acc1B",
+      trafficCase := "CallTerm",
+      callGroup := "
+		publicIdPrefix=acc1;
+		IdLength=5;
+		IdRange=05000..05009;
+                homeDomain=system.test;
+                password=imt40imt40;
+                privateIdPrefix=acc1;
+                privateDomain=system.test;
+                telIdPrefix=123456;",
+      generic := {
+        userWatchdog := 350.00,
+        burstCalcMethod := "noMemCs"
+      },
+      transport := {
+        {
+          host := "",
+          hostTransport := {
+            {
+              proxyTransport := {
+                preferredTransport := "udp",
+                transportType := IPL4, // IPL4 - use IPL4 testport, IPL2 - use LANL2 testport
+                proxyList := {
+                  {
+                    proxyName := "3001:21::4",
+                    proxyPort := 5060
+                  }
+                }//proxyList
+              },//proxyTransport
+              simulationType := {
+                ueTransport := {
+                  ueIpLow    := "3001:100:16::7",
+                  ueIpHigh   := "3001:100:16::11",
+                  uePortLow  := 10000,
+                  uePortHigh := 30000
+                }//ueTransport
+              }//simulationType
+            }
+          }//hostTransport
+        }
+      },//transport
+      trafficSpecific := {
+        registration := {
+          rps := 1.00000,
+          tempId := false,
+          registrationExpires := 3600.000000,
+          sbgRegMinExpires := 0.0,
+          reRegMargin := 5.0,
+          reRegistration := true,
+          maxRetryAfter := 10,
+          retryAfterFail := 30.0,
+          regWatchdog := 40.0,
+          PAccessNetworkInfo := "",
+          includeTransportInContact := true,
+          distributeRegister := false,
+          delayInitialRegister := 10.0,
+          authHeaderInInitialReg := false,
+          deregisterCurrentContactOnly := false,
+          enableSTUN := false,
+          keepAliveSTUN := 30.0,
+          halfcall := false
+        },
+        callTerm := {
+          answeringTimeMin := 5.0,
+          answeringTimeMax := 5.0,
+          answeringMode := {normal:={}},
+          trying100Enabled := false,
+          provisionalResponseToEnable := RINGING180,
+          sdpIn18x := false
+        },
+        media :=
+        {
+          enabled := true,
+
+          generator := {
+            mlsim :=
+            {
+	        enabled := true,
+		enableMLSimPlus := true,
+		maxNumberOfSessions := 2,
+                supportedCodecs := {AMR_122_OA,H_263},
+                startNumOfSessions := 1,
+                simplificationLevel := 0,
+                nrOfNormalSessions := 0,
+                enableSessionCriteria := true
+            }
+          }
+        }
+      }//trafficSpecific
+    },  //trafficCase - acc1Aacc1B
+
+
+ ///////////////////////////////////////////////////////////////////////////////
+    //                                                                          
+    //  Case:               acc3Cacc1D - acc1D                                  
+    //  Description:        10 UE access3 to access1 UDP call, Ipv4, Media enabled, NAT
+    //                                                                              
+    /////////////////////////////////////////////////////////////////////////////// 
+          {                                                                         
+      name := "acc3Cacc1D",                                                          
+      trafficCase := "CallOrig",                                                    
+                callGroup := "                                                      
+                publicIdPrefix=access1_titan;                                       
+                IdLength=5;                                                         
+                IdRange=10000..10009;                                               
+                homeDomain=system.test;                                             
+                password=imt40imt40;                                                
+                privateIdPrefix=access1_titan;                                      
+                privateDomain=system.test;                                          
+                telIdPrefix=123456;",                                               
+      generic := {                                                                  
+        userWatchdog := 350.00,                                                     
+        burstCalcMethod := "noMemCs"                                                
+      },                                                                            
+      transport := {                                                                
+        {                                                                           
+          host := "",                                                               
+          hostTransport := {                                                        
+            {                                                                       
+              proxyTransport := {                                                   
+                preferredTransport := "udp",                                        
+                transportType := IPL4, // IPL4 - use IPL4 testport, IPL2 - use LANL2 testport
+                proxyList := {                                                               
+                  {                                                                          
+                    proxyName := "10.21.0.4",                                                
+                    proxyPort := 5060                                                        
+                  }                                                                          
+                }//proxyList                                                                 
+              },//proxyTransport                                                             
+              simulationType := {                                                            
+//                ueTransport := {                                                           
+//                  ueIpLow    := "192.168.206.207",                                         
+//                  ueIpHigh   := "192.168.206.208",                                         
+//                  uePortLow  := 10000,                                                     
+//                  uePortHigh := 30000                                                      
+//                }//ueTransport                                                             
+                  nat := {                                                                   
+                    localIpLow    := "10.100.16.1",                                          
+                    localIpHigh   := "10.100.16.2",                                          
+                    localPortLow  := 10000,                                                  
+                    localPortHigh := 30000,                                                  
+                    ueIpLow    := "10.230.64.3",                                             
+                    ueIpHigh   := "10.230.64.3",                                             
+                   uePortLow  := 10000,                                                      
+                    uePortHigh := 30000                                                      
+                  }//nat                                                                     
+
+              }//simulationType
+            }                  
+          }//hostTransport     
+        }                      
+      },//transport            
+      trafficSpecific := {     
+        registration := {      
+          rps := 1.0,         
+          tempId := false,     
+          registrationExpires := 3600.000000,
+          sbgRegMinExpires := 0.0,         
+          reRegMargin := 5.0,              
+          reRegistration := true,          
+          maxRetryAfter := 10,             
+          retryAfterFail := 30.0,          
+          regWatchdog := 40.0,             
+          PAccessNetworkInfo := "",        
+          includeTransportInContact := true,
+          distributeRegister := false,      
+          delayInitialRegister := 20.0,     
+          authHeaderInInitialReg := false,  
+          deregisterCurrentContactOnly := false,
+          enableSTUN := false,                  
+          keepAliveSTUN := 30.0,                
+      //    keep :=                             
+      //      {                                 
+      //        enable := true,                 
+      //        frequency := 1                  
+      //      },                                
+          halfcall := false                     
+        },                                      
+        callOrig := {                           
+          cps := 0.0,                           
+          calledGroup := "publicIdPrefix=access1_titan;IdLength=5;IdRange=15000..15009;homeDomain=system.test;",
+          callHoldMin := 180.0,                                                                                 
+          callHoldMax := 180.0,                                                                                 
+          cancelTimeMin := 0.0,                                                                                 
+          cancelTimeMax := 0.0,                                                                                 
+          useTelUri := false,                                                                                   
+          maxRetryAfter := 3,                                                                                   
+          allowMultipleEarlyDialogs := false                                                                    
+        },                                                                                                      
+        media :=                                                                                                
+        {                                                                                                       
+          enabled := true,                                                                                      
+                                                                                                                 
+          generator := {                                                                                         
+            mlsim :=                                                                                             
+            {                                                                                                    
+                enabled := true,                                                                                 
+                enableMLSimPlus := true,                                                                         
+                maxNumberOfSessions := 1,                                                                        
+                supportedCodecs := {AMR_122_OA},                                                                 
+                startNumOfSessions := 1,                                                                         
+                simplificationLevel := 0,                                                                        
+                nrOfNormalSessions := 0,                                                                         
+                enableSessionCriteria := true                                                                    
+            }                                                                                                    
+          }                                                                                                      
+        }                                                                                                        
+      }                                                                                                          
+    },//trafficCase - acc3Cacc1D                                                                                  
+    {                                                                                                          
+      name := "acc1D",                                                                                       
+      trafficCase := "CallTerm",                                                                                 
+      callGroup := "                                                                                             
+                publicIdPrefix=access1_titan;                                                                    
+                IdLength=5;                                                                                      
+                IdRange=15000..15009;                                                                            
+                homeDomain=system.test;                                                                          
+                password=imt40imt40;                                                                             
+                privateIdPrefix=access1_titan;                                                                   
+                privateDomain=system.test;                                                                       
+                telIdPrefix=123456;",                                                                            
+      generic := {                                                                                               
+        userWatchdog := 340.00,                                                                                  
+        burstCalcMethod := "noMemCs"                                                                             
+      },                                                                                                         
+      transport := {                                                                                             
+        {                                                                                                        
+          host := "",                                                                                            
+          hostTransport := {                                                                                     
+            {                                                                                                    
+              proxyTransport := {                                                                                
+                preferredTransport := "udp",                                                                     
+                transportType := IPL4, // IPL4 - use IPL4 testport, IPL2 - use LANL2 testport                    
+                proxyList := {                                                                                   
+                  {                                                                                              
+                    proxyName := "10.21.0.4",                                                                    
+                    proxyPort := 5060                                                                            
+                  }                                                                                              
+                }//proxyList                                                                                     
+              },//proxyTransport                                                                                 
+              simulationType := {                                                                                
+                ueTransport := {                                                                                 
+                  ueIpLow    := "10.100.16.4",                                                                   
+                  ueIpHigh   := "10.100.16.5",                                                                   
+                  uePortLow  := 10000,                                                                           
+                  uePortHigh := 30000                                                                            
+                }//ueTransport                                                                                   
+              }//simulationType                                                                                  
+            }                                                                                                    
+          }//hostTransport                                                                                       
+        }                                                                                                        
+      },//transport                                                                                              
+      trafficSpecific := {
+        registration := {
+          rps := 1.00000,
+          tempId := false,
+          registrationExpires := 3600.000000,
+          sbgRegMinExpires := 0.0,
+          reRegMargin := 5.0,
+          reRegistration := true,
+          maxRetryAfter := 10,
+          retryAfterFail := 30.0,
+          regWatchdog := 40.0,
+          PAccessNetworkInfo := "",
+          includeTransportInContact := true,
+          distributeRegister := false,
+          delayInitialRegister := 30.0,
+          authHeaderInInitialReg := false,
+          deregisterCurrentContactOnly := false,
+          enableSTUN := false,
+          keepAliveSTUN := 30.0,
+          halfcall := false
+        },
+        callTerm := {
+          answeringTimeMin := 5.0,
+          answeringTimeMax := 5.0,
+          answeringMode := {normal:={}},
+          trying100Enabled := false,
+          provisionalResponseToEnable := RINGING180,
+          sdpIn18x := false
+        },
+        media :=
+        {
+          enabled := true,
+
+          generator := {
+            mlsim :=
+            {
+                enabled := true,
+                enableMLSimPlus := true,
+                maxNumberOfSessions := 1,
+                supportedCodecs := {AMR_122_OA},
+                startNumOfSessions := 1,
+                simplificationLevel := 0,
+                nrOfNormalSessions := 0,
+                enableSessionCriteria := true
+  }
+         }
+      }
+      }//trafficSpecific
+    },//trafficCase acc3Cacc1D - acc1D
+
+    ///////////////////////////////////////////////////////////////////////////////
+    //
+    //  Case:               acc3Eacc1F - acc1F
+    //  Description:        10 UE access3 to access1 UDP call, Ipv4-Ipv6, Media enabled
+    //
+    ///////////////////////////////////////////////////////////////////////////////
+    
+    {
+      name := "acc3Eacc1F",
+      trafficCase := "CallOrig",
+                callGroup := "  
+                publicIdPrefix=access1_titan;
+                IdLength=5;                  
+                IdRange=20000..20009;        
+                homeDomain=system.test;      
+                password=imt40imt40;         
+                privateIdPrefix=access1_titan;
+                privateDomain=system.test;    
+                telIdPrefix=123456;",         
+      generic := {                            
+        userWatchdog := 340.00,               
+        burstCalcMethod := "noMemCs"          
+      },
+      transport := {
+        {
+          host := "",
+          hostTransport := {
+            {               
+              proxyTransport := {
+                preferredTransport := "udp",
+                transportType := IPL4, // IPL4 - use IPL4 testport, IPL2 - use LANL2 testport
+                proxyList := {                                                               
+                  {                                                                          
+                    proxyName := "10.21.0.4",                                                
+                    proxyPort := 5060                                                        
+                  }                                                                          
+                }//proxyList                                                                 
+              },//proxyTransport                                                             
+              simulationType := {                                                            
+                ueTransport := {                                                             
+                  ueIpLow    := "10.100.16.6",                                           
+                  ueIpHigh   := "10.100.16.7",                                           
+                  uePortLow  := 10000,                                                       
+                  uePortHigh := 30000                                                        
+                }//ueTransport                                                               
+              }//simulationType                                                              
+            }                                                                                
+          }//hostTransport                                                                   
+        }
+      },//transport
+      trafficSpecific := {
+        registration := { 
+          rps := 1.0,    
+          tempId := false,
+          registrationExpires := 3600.000000,
+          sbgRegMinExpires := 0.0,         
+          reRegMargin := 5.0,              
+          reRegistration := true,          
+          maxRetryAfter := 10,             
+          retryAfterFail := 30.0,          
+          regWatchdog := 40.0,             
+          PAccessNetworkInfo := "",
+          includeTransportInContact := true,
+          distributeRegister := false,
+          delayInitialRegister := 40.0,
+          authHeaderInInitialReg := false,
+          deregisterCurrentContactOnly := false,
+          enableSTUN := false,
+          keepAliveSTUN := 30.0,
+          halfcall := false
+        },
+        callOrig := {
+          cps := 0.0,
+          calledGroup := "publicIdPrefix=access3_titan;IdLength=5;IdRange=25000..25009;homeDomain=system.test;",
+          callHoldMin := 180.0,
+          callHoldMax := 180.0,
+          cancelTimeMin := 0.0,
+          cancelTimeMax := 0.0,
+          useTelUri := false,
+          maxRetryAfter := 3,
+          allowMultipleEarlyDialogs := false
+        },
+        media :=
+        {
+          enabled := true,
+
+          generator := {
+            mlsim :=
+            {
+                enabled := true,
+                enableMLSimPlus := true,
+                maxNumberOfSessions := 1,
+                supportedCodecs := {AMR_122_OA},
+                startNumOfSessions := 1,
+                simplificationLevel := 0,
+                nrOfNormalSessions := 0,
+                enableSessionCriteria := true
+            }
+          }
+        }
+      }
+    },//trafficCase - acc1acc3E
+
+    {
+      name := "acc1F",
+      trafficCase := "CallTerm",
+      callGroup := "            
+                publicIdPrefix=access3_titan;
+                IdLength=5;                  
+                IdRange=25000..25009;        
+                homeDomain=system.test;      
+                password=imt40imt40;         
+                privateIdPrefix=access3_titan;
+                privateDomain=system.test;    
+                telIdPrefix=123456;",         
+      generic := {                            
+        userWatchdog := 340.00,               
+        burstCalcMethod := "noMemCs"          
+      },
+      transport := {
+        {
+          host := "",
+          hostTransport := {
+            {               
+              proxyTransport := {
+                preferredTransport := "udp",
+                transportType := IPL4, // IPL4 - use IPL4 testport, IPL2 - use LANL2 testport
+                proxyList := {                                                               
+                  {                                                                          
+                    proxyName := "3001:31::4",                                               
+                    proxyPort := 5060                                                        
+                  }                                                                          
+                }//proxyList                                                                 
+              },//proxyTransport                                                             
+              simulationType := {                                                            
+                ueTransport := {                                                             
+                  ueIpLow    := "3001:100:80::8",                                                  
+                  ueIpHigh   := "3001:100:80::9",                                                  
+                  uePortLow  := 10000,                                                       
+                  uePortHigh := 30000                                                        
+                }//ueTransport                                                               
+              }//simulationType                                                              
+            }                                                                                
+          }//hostTransport                                                                   
+        }
+      },//transport
+      trafficSpecific := {
+        registration := { 
+          rps := 1.00000,
+          tempId := false,
+          registrationExpires := 3600.000000,
+          sbgRegMinExpires := 0.0,         
+          reRegMargin := 5.0,              
+          reRegistration := true,          
+          maxRetryAfter := 10,             
+          retryAfterFail := 30.0,          
+          regWatchdog := 40.0,             
+          PAccessNetworkInfo := "",        
+          includeTransportInContact := true,
+          distributeRegister := false,      
+          delayInitialRegister := 50.0,    
+          authHeaderInInitialReg := false,  
+          deregisterCurrentContactOnly := false,
+          enableSTUN := false,                  
+          keepAliveSTUN := 30.0,                
+          halfcall := false                     
+        },
+        callTerm := {
+          answeringTimeMin := 5.0,
+          answeringTimeMax := 5.0,
+          answeringMode := {normal:={}},
+          trying100Enabled := false,    
+          provisionalResponseToEnable := RINGING180,
+          sdpIn18x := false                         
+        },
+        media :=
+        {
+          enabled := true,
+   
+          generator := {
+            mlsim :=    
+            {           
+                enabled := true,
+                enableMLSimPlus := true,
+                maxNumberOfSessions := 1,
+                supportedCodecs := {AMR_122_OA},
+                startNumOfSessions := 1,        
+                simplificationLevel := 0,       
+                nrOfNormalSessions := 0,        
+                enableSessionCriteria := true                
+            }                                                
+          }
+        }
+      } //trafficSpecific
+    }, //trafficCase - acc3Eacc1F
+
+  ///////////////////////////////////////////////////////////////////////////////
+  //
+  //  Case:               acc1Gacc1H - acc1H
+  //  Description:        4K access1 to access1 UDP call, Ipv4, Media enabled
+  //
+  ///////////////////////////////////////////////////////////////////////////////
+
+  {
+      name := "acc1Gacc1H",
+      trafficCase := "CallOrig",
+		callGroup := "
+		publicIdPrefix=acc1;
+		IdLength=5;
+		IdRange=30000..30009;
+                homeDomain=system.test;
+                password=imt40imt40;
+                privateIdPrefix=acc1;
+                privateDomain=system.test;
+                telIdPrefix=123456;",
+      generic := {
+        userWatchdog := 340.00,
+        burstCalcMethod := "noMemCs"
+      },
+      transport := {
+        {
+          host := "",
+          hostTransport := {
+            {
+              proxyTransport := {
+                preferredTransport := "udp",
+                transportType := IPL4, // IPL4 - use IPL4 testport, IPL2 - use LANL2 testport
+                proxyList := {
+                  {
+                    proxyName := "10.21.0.4",
+                    proxyPort := 5060
+                  }
+                }//proxyList
+              },//proxyTransport
+              simulationType := {
+                ueTransport := {
+                  ueIpLow    := "10.100.16.8",
+                  ueIpHigh   := "10.100.16.9",
+                  uePortLow  := 10000,
+                  uePortHigh := 30000
+                }//ueTransport
+              }//simulationType
+            }
+          }//hostTransport
+        }
+      },//transport
+      trafficSpecific := {
+        registration := {
+          rps := 1.0,
+          tempId := false,
+          registrationExpires := 3600.000000,
+          sbgRegMinExpires := 0.0,
+          reRegMargin := 5.0,
+          reRegistration := true,
+          maxRetryAfter := 10,
+          retryAfterFail := 30.0,
+          regWatchdog := 40.0,
+          PAccessNetworkInfo := "",
+          includeTransportInContact := true,
+          distributeRegister := false,
+          delayInitialRegister := 60.0,
+          authHeaderInInitialReg := false,
+          deregisterCurrentContactOnly := false,
+          enableSTUN := false,
+          keepAliveSTUN := 30.0,
+          halfcall := false
+        },
+        callOrig := {
+          cps := 0.0,
+          calledGroup := "publicIdPrefix=acc1;IdLength=5;IdRange=34000..34009;homeDomain=system.test;",
+          callHoldMin := 180.0,
+          callHoldMax := 180.0,
+          cancelTimeMin := 0.0,
+          cancelTimeMax := 0.0,
+          useTelUri := false,
+          maxRetryAfter := 3,
+          allowMultipleEarlyDialogs := false
+        },       
+        media :=
+        {
+          enabled := true,
+   
+          generator := {
+            mlsim :=
+            {
+	    	enabled := true,
+		enableMLSimPlus := true,
+                maxNumberOfSessions := 1,
+                supportedCodecs := {AMR_122_OA},
+                startNumOfSessions := 1,
+                simplificationLevel := 0,
+                nrOfNormalSessions := 0,
+                enableSessionCriteria := true                
+            }
+          }
+        }
+      }
+    },//trafficCase - acc1Gacc1H
+    {
+      name := "acc1H",
+      trafficCase := "CallTerm",
+      callGroup := "
+		publicIdPrefix=acc1;
+		IdLength=5;
+		IdRange=34000..34009;
+                homeDomain=system.test;
+                password=imt40imt40;
+                privateIdPrefix=acc1;
+                privateDomain=system.test;
+                telIdPrefix=123456;",
+      generic := {
+        userWatchdog := 340.00,
+        burstCalcMethod := "noMemCs"
+      },
+      transport := {
+        {
+          host := "",
+          hostTransport := {
+            {
+              proxyTransport := {
+                preferredTransport := "udp",
+                transportType := IPL4, // IPL4 - use IPL4 testport, IPL2 - use LANL2 testport
+                proxyList := {
+                  {
+                    proxyName := "10.21.0.4",
+                    proxyPort := 5060
+                  }
+                }//proxyList
+              },//proxyTransport
+              simulationType := {
+                ueTransport := {
+                  ueIpLow    := "10.100.16.10",
+                  ueIpHigh   := "10.100.16.11",
+                  uePortLow  := 10000,
+                  uePortHigh := 30000
+                }//ueTransport
+              }//simulationType
+            }
+          }//hostTransport
+        }
+      },//transport
+      trafficSpecific := {
+        registration := {
+          rps := 1.00000,
+          tempId := false,
+          registrationExpires := 3600.000000,
+          sbgRegMinExpires := 0.0,
+          reRegMargin := 5.0,
+          reRegistration := true,
+          maxRetryAfter := 10,
+          retryAfterFail := 30.0,
+          regWatchdog := 40.0,
+          PAccessNetworkInfo := "",
+          includeTransportInContact := true,
+          distributeRegister := false,
+          delayInitialRegister := 70.0,
+          authHeaderInInitialReg := false,
+          deregisterCurrentContactOnly := false,
+          enableSTUN := false,
+          keepAliveSTUN := 30.0,
+          halfcall := false
+        },
+        callTerm := {
+          answeringTimeMin := 5.0,
+          answeringTimeMax := 5.0,
+          answeringMode := {normal:={}},
+          trying100Enabled := false,
+          provisionalResponseToEnable := RINGING180,
+          sdpIn18x := false
+        },
+        media :=
+        {
+          enabled := true,
+   
+          generator := {
+            mlsim :=
+            {
+	    	enabled := true,
+		enableMLSimPlus := true,
+		maxNumberOfSessions := 1,
+                supportedCodecs := {AMR_122_OA},
+                startNumOfSessions := 1,
+                simplificationLevel := 0,
+                nrOfNormalSessions := 0,
+                enableSessionCriteria := true                
+            }
+          }
+        }
+      }//trafficSpecific
+    },//trafficCase - acc1Gacc1H
+
+    ///////////////////////////////////////////////////////////////////////////////
+    //
+    //  Case:               acc1Iacc1J - acc1J
+    //  Description:        1k access1 to access1 UDP call, Ipv4, Media enabled
+    //
+    ///////////////////////////////////////////////////////////////////////////////
+
+    {                             
+      name := "acc1Iacc1J",       
+      trafficCase := "CallOrig",  
+                callGroup := "    
+                publicIdPrefix=acc1;
+                IdLength=5;         
+                IdRange=38000..38009;
+                homeDomain=system.test;
+                password=imt40imt40;   
+                privateIdPrefix=acc1;  
+                privateDomain=system.test;
+                telIdPrefix=123456;",     
+      generic := {                        
+        userWatchdog := 340.00,           
+        burstCalcMethod := "noMemCs"      
+      },                                  
+      transport := {                      
+        {                                 
+          host := "",                     
+          hostTransport := {              
+            {                             
+              proxyTransport := {         
+                preferredTransport := "udp",
+                transportType := IPL4, // IPL4 - use IPL4 testport, IPL2 - use LANL2 testport
+                proxyList := {                                                               
+                  {                                                                          
+                    proxyName := "10.21.0.4",                                                
+                    proxyPort := 5060                                                        
+                  }                                                                          
+                }//proxyList                                                                 
+              },//proxyTransport                                                             
+              simulationType := {                                                            
+                ueTransport := {                                                             
+                  ueIpLow    := "10.100.16.12",                                              
+                  ueIpHigh   := "10.100.16.13",                                              
+                  uePortLow  := 12000,                                                       
+                  uePortHigh := 30000                                                        
+                }//ueTransport                                                               
+              }//simulationType                                                              
+            }                                                                                
+          }//hostTransport                                                                   
+        }                                                                                    
+      },//transport                                                                          
+      trafficSpecific := {                                                                   
+        registration := {                                                                    
+          rps := 1.0,                                                                       
+          tempId := false,                                                                   
+          registrationExpires := 3600.000000,                                                  
+          sbgRegMinExpires := 0.0,                                                           
+          reRegMargin := 5.0,                                                                
+          reRegistration := true,                                                            
+          maxRetryAfter := 10,                                                               
+          retryAfterFail := 30.0,                                                            
+          regWatchdog := 40.0,                                                               
+          PAccessNetworkInfo := "",                                                          
+          includeTransportInContact := true,                                                 
+          distributeRegister := false,                                                       
+          delayInitialRegister := 80.0,                                                     
+          authHeaderInInitialReg := false,                                                   
+          deregisterCurrentContactOnly := false,                                             
+          enableSTUN := false,                                                               
+          keepAliveSTUN := 30.0,                                                             
+          halfcall := false                                                                  
+        },
+        callOrig := {
+          cps := 0.0,
+          calledGroup := "publicIdPrefix=acc1;IdLength=5;IdRange=39000..39009;homeDomain=system.test;",
+          callHoldMin := 60.0,                                                                         
+          callHoldMax := 60.0,                                                                         
+          cancelTimeMin := 0.0,                                                                        
+          cancelTimeMax := 0.0,                                                                        
+          useTelUri := false,                                                                          
+          maxRetryAfter := 3,                                                                          
+          allowMultipleEarlyDialogs := false                                                           
+        },                                                                                             
+        media :=                                                                                       
+        {
+          enabled := true,
+          msrp :=         
+          {
+              enabled := true,
+              msgContent := "../cfg/IMS/template/msrp_msg5k.txt",
+              msgSize := 5000,                                   
+              msgType := "text",                                 
+              msgSubType := "plain",                             
+              chunkSize := 100,                                  
+              successReport := successYes,                       
+              failureReport := failureYes                        
+          }
+        }
+      }
+    },//trafficCase - acc1Iacc1J
+    {
+      name := "acc1J",
+      trafficCase := "CallTerm",
+      callGroup := "            
+                publicIdPrefix=acc1;
+                IdLength=5;         
+                IdRange=39000..39009;
+                homeDomain=system.test;
+                password=imt40imt40;   
+                privateIdPrefix=acc1;  
+                privateDomain=system.test;
+                telIdPrefix=123456;",     
+      generic := {                        
+        userWatchdog := 340.00,           
+        burstCalcMethod := "noMemCs"      
+      },
+      transport := {
+        {
+          host := "",
+          hostTransport := {
+            {               
+              proxyTransport := {
+                preferredTransport := "udp",
+                transportType := IPL4, // IPL4 - use IPL4 testport, IPL2 - use LANL2 testport
+                proxyList := {                                                               
+                  {                                                                          
+                    proxyName := "10.21.0.4",                                                
+                    proxyPort := 5060                                                        
+                  }                                                                          
+                }//proxyList                                                                 
+              },//proxyTransport                                                             
+              simulationType := {                                                            
+                ueTransport := {                                                             
+                  ueIpLow    := "10.100.16.14",                                              
+                  ueIpHigh   := "10.100.16.15",                                              
+                  uePortLow  := 12000,                                                       
+                  uePortHigh := 30000                                                        
+                }//ueTransport                                                               
+              }//simulationType                                                              
+            }                                                                                
+          }//hostTransport                                                                   
+        }
+      },//transport
+      trafficSpecific := {
+        registration := { 
+          rps := 1.00000,
+          tempId := false,
+          registrationExpires := 3600.000000,
+          sbgRegMinExpires := 0.0,         
+          reRegMargin := 5.0,              
+          reRegistration := true,          
+          maxRetryAfter := 10,             
+          retryAfterFail := 30.0,          
+          regWatchdog := 40.0,
+          PAccessNetworkInfo := "",
+          includeTransportInContact := true,
+          distributeRegister := false,
+          delayInitialRegister := 90.0,
+          authHeaderInInitialReg := false,
+          deregisterCurrentContactOnly := false,
+          enableSTUN := false,
+          keepAliveSTUN := 30.0,
+          halfcall := false
+        },
+        callTerm := {
+          answeringTimeMin := 5.0,
+          answeringTimeMax := 5.0,
+          answeringMode := {normal:={}},
+          trying100Enabled := false,
+          provisionalResponseToEnable := RINGING180,
+          sdpIn18x := false
+        },
+        media :=
+        {
+          enabled := true,
+          msrp :=
+          {
+              enabled := true,
+              msgContent := "../cfg/IMS/template/msrp_msg5k.txt",
+              msgSize := 5000,
+              msgType := "text",
+              msgSubType := "plain",
+              chunkSize := 100,
+              successReport := successYes,
+              failureReport := failureYes
+          }
+        }
+      }//trafficSpecific
+    }//traffic case acc1Iacc1J -acc1J
+ }//trafficCases
+},//scenario Call
+
+{
+    scenarioName := "Tls",
+    trafficCases := {     
+    {                     
+
+      ///////////////////////////////////////////////////////////////////////////////
+      //                                                                             
+      //  Case:               acc3Macc3N - acc3N
+      //  Description:        10 UE access3 to access3 TLS call, Ipv4, Media enabled,
+      //                      No Transcoding   
+      //                                                                             
+      ///////////////////////////////////////////////////////////////////////////////
+
+      name := "acc3Kacc3L",
+      trafficCase := "CallOrig",
+                callGroup := "  
+                publicIdPrefix=access3_titanB;
+                IdLength=5;                   
+                IdRange=40000..40009;         
+                homeDomain=system.test;       
+                password=imt40imt40;          
+                privateIdPrefix=access3_titanB;
+                privateDomain=system.test;     
+                telIdPrefix=123456;",          
+      generic := {                             
+        userWatchdog := 340.00,                
+        burstCalcMethod := "noMemCs"           
+      },                                       
+      transport := {                           
+        {                                      
+          host := "",                          
+          hostTransport := {                   
+            {                                  
+              proxyTransport := {              
+                preferredTransport := "TLS",   
+                transportType := IPL4, // IPL4 - use IPL4 testport, IPL2 - use LANL2 testport
+                proxyList := {                                                               
+                  {                                                                          
+                    proxyName := "10.31.0.4",                                                
+                    proxyPort := 5061                                                        
+                  }                                                                          
+                }//proxyList                                                                 
+              },//proxyTransport                                                             
+              simulationType := {                                                            
+                ueTransport := {                                                             
+                  ueIpLow    := "10.100.80.2",                                               
+                  ueIpHigh   := "10.100.80.3",                                               
+                  uePortLow  := 10000,                                                       
+                  uePortHigh := 30000                                                        
+                }//ueTransport                                                               
+              }//simulationType                                                              
+            }                                                                                
+          }//hostTransport                                                                   
+        }
+      },//transport
+      trafficSpecific := {
+        registration := { 
+          rps := 1.0,    
+          tempId := false,
+          registrationExpires := 3600.000000,
+          sbgRegMinExpires := 0.0,         
+          reRegMargin := 5.0,              
+          reRegistration := true,          
+          maxRetryAfter := 100,            
+          retryAfterFail := 30.0,          
+          regWatchdog := 40.0,             
+          PAccessNetworkInfo := "",        
+          includeTransportInContact := true,
+          distributeRegister := false,      
+          delayInitialRegister := 100.0,      
+          authHeaderInInitialReg := false,  
+          deregisterCurrentContactOnly := false,
+          enableSTUN := false,                  
+          keepAliveSTUN := 30.0,                
+          halfcall := false,                    
+          retryLogicParams := omit              
+        },
+        callOrig := {
+          cps := 0.0,
+          calledGroup := "publicIdPrefix=access3_titanB;IdLength=5;IdRange=45000..45009;homeDomain=system.test;",
+          callHoldMin := 180.0,                                                                                  
+          callHoldMax := 180.0,                                                                                  
+          cancelTimeMin := 0.0,                                                                                  
+          cancelTimeMax := 0.0,                                                                                  
+          useTelUri := false,                                                                                    
+          maxRetryAfter := 3,                                                                                    
+          allowMultipleEarlyDialogs := false                                                                     
+        },                                                                                                       
+        media :=                                                                                                 
+        {
+          enabled := true,
+          generator := {  
+            mlsim :=      
+            {             
+                enabled := true,
+                enableMLSimPlus := true,
+                maxNumberOfSessions := 1,
+                supportedCodecs := {AMR_122_OA},
+                transportProtocol :=            
+                {                               
+                 srtpParams :=                  
+                  {                             
+                  rollOverCounterCarryRate := 0,
+                  encryption:= rijndaelCounterMode,
+                  addSecurityHeaders := true,      
+                  tagLength:= 4,                   
+                  authenticationKeyLength:= 20,    
+                  cipherKeyLength := 16,           
+                  cipherSaltLength := 14,          
+                  key := "12345678901234561234567890123456",
+                  salt := "1234567890123412345678901234"    
+                  }                                         
+                },                 
+                startNumOfSessions := 1,                    
+                simplificationLevel := 0,                   
+                nrOfNormalSessions := 0,                    
+                enableSessionCriteria := true,              
+                addedAttributeList :=                       
+                {                                           
+                 {                                          
+                  unknown :=                                
+                  {                                         
+                  name := "3ge2ae",                         
+                  attr_value := "requested"                 
+                  }                                         
+                 }                                          
+                }                
+            }                                               
+          }
+        }
+      }
+    },//trafficCase - acc3Kacc3L
+
+    {
+      name := "acc3L",
+      trafficCase := "CallTerm",
+      callGroup := "            
+                publicIdPrefix=access3_titanB;
+                IdLength=5;                   
+                IdRange=45000..45009;         
+                homeDomain=system.test;       
+                password=imt40imt40;          
+                privateIdPrefix=access3_titanB;
+                privateDomain=system.test;     
+                telIdPrefix=123456;",          
+      generic := {                             
+        userWatchdog := 340.00,                
+        burstCalcMethod := "noMemCs"           
+      },
+      transport := {
+        {
+          host := "",
+          hostTransport := {
+            {               
+              proxyTransport := {
+                preferredTransport := "TLS",
+                transportType := IPL4, // IPL4 - use IPL4 testport, IPL2 - use LANL2 testport
+                proxyList := {                                                               
+                  {                                                                          
+                    proxyName := "10.31.0.4",                                                
+                    proxyPort := 5061                                                        
+                  }                                                                          
+                }//proxyList                                                                 
+              },//proxyTransport                                                             
+              simulationType := {                                                            
+                ueTransport := {                                                             
+                  ueIpLow    := "10.100.80.4",                                               
+                  ueIpHigh   := "10.100.80.5",                                               
+                  uePortLow  := 10000,                                                       
+                  uePortHigh := 30000                                                        
+                }//ueTransport                                                               
+              }//simulationType                                                              
+            }                                                                                
+          }//hostTransport                                                                   
+        }
+      },//transport
+      trafficSpecific := {
+        registration := { 
+          rps := 1.00000,
+          tempId := false,
+          registrationExpires := 3600.000000,
+          sbgRegMinExpires := 0.0,         
+          reRegMargin := 5.0,              
+          reRegistration := true,          
+          maxRetryAfter := 100,            
+          retryAfterFail := 30.0,          
+          regWatchdog := 40.0,             
+          PAccessNetworkInfo := "",        
+          includeTransportInContact := true,
+          distributeRegister := false,      
+          delayInitialRegister := 110.0,     
+          authHeaderInInitialReg := false,  
+          deregisterCurrentContactOnly := false,
+          enableSTUN := false,                  
+          keepAliveSTUN := 30.0,                
+          halfcall := false                     
+        },
+        callTerm := {
+          answeringTimeMin := 5.0,
+          answeringTimeMax := 5.0,
+          answeringMode := {normal:={}},
+          trying100Enabled := false,    
+          provisionalResponseToEnable := RINGING180,
+          sdpIn18x := false                         
+        },
+        media :=
+        {
+          enabled := true,
+          generator := {  
+            mlsim :=      
+            {             
+                enabled := true,
+                enableMLSimPlus := true,
+                maxNumberOfSessions := 1,
+                supportedCodecs := {AMR_122_OA}, //{G_711a_ptime20},
+                transportProtocol :=
+                {
+                  srtpParams :=
+                  {
+                  rollOverCounterCarryRate := 0,
+                  encryption:= rijndaelCounterMode,
+                  addSecurityHeaders := true,
+                  tagLength:= 4,
+                  authenticationKeyLength:= 20,
+                  cipherKeyLength := 16,
+                  cipherSaltLength := 14,
+                  key := "12345678901234561234567890123456",
+                  salt := "1234567890123412345678901234"
+                  }
+                },
+                startNumOfSessions := 1,
+                simplificationLevel := 0,
+                nrOfNormalSessions := 0,
+                enableSessionCriteria := true
+            }
+          }
+        }
+      }//trafficSpecific
+    }//trafficCase - acc3L
+
+   }//trafficCases
+},//scenario
+
+{
+  scenarioName := "NNI",          
+  phase:="NoReg",                 
+  trafficCases := {               
+
+      ///////////////////////////////////////////////////////////////////////////////
+      //
+      //  Case:               NNICallC - NNICallD
+      //  Description:        10 UE foreign1 to foreign1, Ipv6, Media enabled
+      //
+      ///////////////////////////////////////////////////////////////////////////////
+
+  {  
+                             
+      name := "NNICallC",         
+      trafficCase := "CallOrig",  
+                callGroup := "    
+                publicIdPrefix=+46107;
+                IdLength=5;           
+                IdRange=20000..20009; 
+                homeDomain=foreign1.test;
+                password=imt40imt40;     
+                privateIdPrefix=+46107;  
+                privateDomain=foreign1.test;
+                telIdPrefix=123456;",       
+      generic := {                          
+        userWatchdog := 340.00,             
+        burstCalcMethod := "noMemCs"        
+      },                                    
+      transport := {                        
+        {                                   
+          host := "",                       
+          hostTransport := {                
+            {                               
+              proxyTransport := {           
+                preferredTransport := "udp",
+                transportType := IPL4, // IPL4 - use IPL4 testport, IPL2 - use LANL2 testport
+                proxyList := {                                                               
+                  {                                                                          
+                    proxyName := "3001:41::4",                                               
+                    proxyPort := 5060                                                        
+                  }                                                                          
+                }//proxyList                                                                 
+              },//proxyTransport                                                             
+              simulationType := {                                                            
+                  multiplexing := {                                                          
+                    localIP    := "3001:100:224::1",                                         
+                    localPort   := 10000,                                                    
+                    mediaIpLow    := "3001:100:224::1",                                      
+                    mediaIpHigh   := "3001:100:224::2",                                      
+                    mediaPortLow  := 10002,                                                  
+                    mediaPortHigh := 30000                                                   
+                  }//multiplexing                                                            
+              }//simulationType                                                              
+            }                                                                                
+          }//hostTransport                                                                   
+        }                                                                                    
+      },//transport                                                                          
+      trafficSpecific := {                                                                   
+        registration := {                                                                    
+          rps := 0.0,                                                                        
+          tempId := false,                                                                   
+          registrationExpires := 3600.000000,                                                  
+          sbgRegMinExpires := 40.0,                                                          
+          reRegMargin := 10.0,                                                               
+          reRegistration := true,                                                            
+          maxRetryAfter := 10,                                                               
+          retryAfterFail := 30.0,                                                            
+          regWatchdog := 100.0,                                                              
+          PAccessNetworkInfo := "",                                                          
+          includeTransportInContact := true,                                                 
+          distributeRegister := false,                                                       
+          delayInitialRegister := 120.0,                                                       
+          authHeaderInInitialReg := false,                                                   
+          deregisterCurrentContactOnly := false,                                             
+          enableSTUN := false,                                                               
+          keepAliveSTUN := 30.0,                                                             
+          halfcall := false                                                                  
+        },                                                                                   
+        callOrig := {                                                                        
+          cps := 0.0,                                                                        
+          calledGroup := "publicIdPrefix=+46107;IdLength=5;IdRange=30000..30009;homeDomain=foreign1.test;",
+          callHoldMin := 60.0,                                                                             
+          callHoldMax := 60.0,                                                                             
+          cancelTimeMin := 0.0,                                                                            
+          cancelTimeMax := 0.0,                                                                            
+          useTelUri := false,                                                                              
+          maxRetryAfter := 10,                                                                             
+          allowMultipleEarlyDialogs := false                                                               
+        },                                                                                                 
+        media :=                                                                                           
+        {                                                                                                  
+          enabled := true,                                                                                
+                                                                                                           
+          generator := {                                                                                   
+            mlsim :=                                                                                       
+            {                                                                                              
+                enabled := true,                                                                           
+                enableMLSimPlus := true,                                                                   
+                maxNumberOfSessions := 1,                                                                  
+                supportedCodecs := {G_711a},                                                               
+                startNumOfSessions := 1,                                                                   
+                simplificationLevel := 0,                                                                  
+                nrOfNormalSessions := 0,                                                                   
+                enableSessionCriteria := true                                                              
+            }                                                                                              
+          }                                                                                                
+        }                                                                                                  
+      }                                                                                                    
+    },//trafficCase - NNICallC                                                                             
+    {                                                                                                      
+      name := "NNICallD",                                                                                  
+      trafficCase := "CallTerm",                                                                           
+      callGroup := "                                                                                       
+                publicIdPrefix=+46107;                                                                     
+                IdLength=5;                                                                                
+                IdRange=30000..30009;                                                                      
+                homeDomain=foreign1.test;                                                                  
+                password=imt40imt40;                                                                       
+                privateIdPrefix=+46107;                                                                    
+                privateDomain=foreign1.test;                                                               
+                telIdPrefix=123456;",                                                                      
+      generic := {                                                                                         
+        userWatchdog := 340.00,                                                                            
+        burstCalcMethod := "noMemCs"                                                                       
+      },                                                                                                   
+      transport := {                                                                                       
+        {                                                                                                  
+          host := "",                                                                                      
+          hostTransport := {                                                                               
+            {                                                                                              
+              proxyTransport := {                                                                          
+                preferredTransport := "udp",                                                               
+                transportType := IPL4, // IPL4 - use IPL4 testport, IPL2 - use LANL2 testport              
+                proxyList := {                                                                             
+                  {                                                                                        
+                    proxyName := "3001:41::4",                                                             
+                    proxyPort := 5060                                                                      
+                  }                                                                                        
+                }//proxyList                                                                               
+              },//proxyTransport                                                                           
+              simulationType := {                                                                          
+                  multiplexing := {                                                                        
+                    localIP    := "3001:100:224::4",                                                       
+                    localPort   := 5060,                                                                   
+                    mediaIpLow    := "3001:100:224::4",                                                    
+                    mediaIpHigh   := "3001:100:224::5",                                                    
+                    mediaPortLow  := 10000,                                                                
+                    mediaPortHigh := 30000                                                                 
+                  }//multiplexing                                                                          
+              }//simulationType                                                                            
+            }                                                                                              
+          }//hostTransport                                                                                 
+        }
+      },//transport
+      trafficSpecific := {
+        registration := {
+          rps := 0.0,
+          tempId := false,
+          registrationExpires := 3600.000000,
+          sbgRegMinExpires := 40.0,
+          reRegMargin := 10.0,
+          reRegistration := true,
+          maxRetryAfter := 10,
+          retryAfterFail := 30.0,
+          regWatchdog := 100.0,
+          PAccessNetworkInfo := "",
+          includeTransportInContact := true,
+          distributeRegister := false,
+          delayInitialRegister := 130.0,
+          authHeaderInInitialReg := false,
+          deregisterCurrentContactOnly := false,
+          enableSTUN := false,
+          keepAliveSTUN := 30.0,
+          halfcall := false
+        },
+        callTerm := {
+          answeringTimeMin := 5.0,
+          answeringTimeMax := 5.0,
+          answeringMode := {normal:={}},
+          trying100Enabled := false,
+          provisionalResponseToEnable := RINGING180,
+          sdpIn18x := false
+        },
+        media :=
+        {
+          enabled := true,
+          generator := {
+            mlsim :=
+            {
+                enabled := true,
+                enableMLSimPlus := true,
+                maxNumberOfSessions := 1,
+                supportedCodecs := {G_711a},
+                startNumOfSessions := 1,
+                simplificationLevel := 0,
+                enableSessionCriteria := true
+            }
+          }
+        }
+      }//trafficSpecific
+    }//trafficCase - NNICallD
+
+  }//trafficCases
+}
+}//tsp__IMS_Configuration_Scenarios
+
+
+sekilxc0503 [13:33] [lib/cfg/titansim] -> 
